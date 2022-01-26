@@ -43,8 +43,11 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $EstateType = new region();
         $EstateType->Name = $request->NameRegion;
+        $EstateType->kurdishname = $request->kurdishname;
 
         if ($EstateType->save()) {
             $message = [
@@ -94,11 +97,15 @@ class AreaController extends Controller
      */
     public function update(Request $request)
     {
+       // dd($request->all());
+
         $Id = $request->Id;
 
         $update = region::where('id', $Id)->update([
-            'Name' => $request->EditNameRegion
+            'Name' => $request->EditNameRegion,
+            'kurdishname' => $request->kurdishnameedit
         ]);
+
         if ($update) {
             $message = [
                 'status' => 200,

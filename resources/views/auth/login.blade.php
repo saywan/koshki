@@ -19,13 +19,13 @@
 
 
     <!-- App css -->
-    <link href="{{"panel/css/bootstrap.min.css"}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset("panel/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
     <link href="{{asset("panel/css/icons.min.css")}}" rel="stylesheet" type="text/css" />
     <link href="{{asset("panel/css/app.min.css")}}" rel="stylesheet" type="text/css" />
 
 </head>
 
-<body id="body" class="auth-page card-bg">
+<body id="body" class="auth-page" style="background-color: #E91E63">
 <!-- Log In page -->
 <div class="container-fluid">
     <div class="row vh-100">
@@ -35,11 +35,11 @@
                     <div class="col-md-5 col-xl-3 col-lg-4">
                         <div class="card mb-0 border-0">
                             <div class="card-body p-0">
-                                <div class="text-center p-3">
+                                <div class="text-center">
                                     <a href="{{url('/')}}" class="logo logo-admin">
-                                        <img src="{{asset("panel/images/logo-sm.png")}}" height="50" alt="logo" class="auth-logo">
+                                        <img src="{{asset("panel/images/logo/logo-sm.png")}}" height="100" alt="logo" class="auth-logo">
                                     </a>
-                                    <h4 class="mt-3 mb-1 fw-semibold font-18">
+                                    <h4 class="fw-semibold font-18">
                                         @lang('messages.loginTitlePage')
                                     </h4>
 
@@ -100,34 +100,18 @@
                                         </div><!--end col-->
                                     </div> <!--end form-group-->
                                 </form><!--end form-->
-                                <div class="m-3 text-center text-muted">
-                                    <p class="mb-0">Don't have an account ?  <a href="auth-register-alt.html" class="text-primary ms-2">Free Resister</a></p>
-                                </div>
-                                <hr class="hr-dashed mt-4">
-                                <div class="text-center mt-n5">
-                                    <h6 class="card-bg px-3 my-4 d-inline-block">Or Login With</h6>
-                                </div>
-                                <div class="d-flex justify-content-center mb-1">
-                                    <a href="#" class="d-flex justify-content-center align-items-center thumb-sm bg-soft-primary rounded-circle me-2">
-                                        <i class="fab fa-facebook align-self-center"></i>
-                                    </a>
-                                    <a href="#" class="d-flex justify-content-center align-items-center thumb-sm bg-soft-info rounded-circle me-2">
-                                        <i class="fab fa-twitter align-self-center"></i>
-                                    </a>
-                                    <a href="#" class="d-flex justify-content-center align-items-center thumb-sm bg-soft-danger rounded-circle">
-                                        <i class="fab fa-google align-self-center"></i>
-                                    </a>
-                                </div>
+
+
+
                             </div><!--end card-body-->
                         </div><!--end card-->
                     </div><!--end col-->
                     <div class="col-md-7 col-xl-9 col-lg-8  p-0 vh-100 d-flex justify-content-center auth-bg">
                         <div class="accountbg d-flex align-items-center">
                             <div class="account-title text-center text-white">
-                                <img src="{{asset("panel/images/logo-sm.png")}} alt="" class="thumb-sm">
-                                <h4 class="mt-3 text-white">Welcome To <span class="text-warning">Metrica</span> </h4>
-                                <h1 class="text-white">Let's Get Started</h1>
-                                <p class="font-18 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod.</p>
+                                <img src="#" alt="" class="thumb-sm">
+                                <h4 class="mt-3 text-white">Welcome To <span class="text-warning">Koshki Zinwe</span> </h4>
+
                                 <div class="border w-25 mx-auto border-warning"></div>
                             </div>
                         </div><!--end /div-->

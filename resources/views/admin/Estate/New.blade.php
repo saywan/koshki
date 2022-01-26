@@ -41,7 +41,7 @@
                                                 </option>
                                                 @foreach($region as $itemregin)
                                                     <option value="{{$itemregin->id}}">
-                                                        {{$itemregin->Name}}
+                                                        {{$itemregin->Name}}  |     {{$itemregin->kurdishname}}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -62,6 +62,17 @@
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>
+                                                Address  Kurdish language
+                                            </label>
+                                            <input type="text" class="form-control" placeholder="Address ..."
+                                                   id="Address_user_kurdish" name="Address_user_kurdish"
+                                                   required>
+                                            <div class="valid-feedback">
+                                                Correct !
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>
                                               Estate Type
                                             </label>
                                             <select class="form-control" id="estatetype">
@@ -71,7 +82,7 @@
                                                 @foreach($estatetype as $itemestatetype)
 
                                                     <option value="{{$itemestatetype->id}}">
-                                                        {{$itemestatetype->Name}}
+                                                        {{$itemestatetype->Name}}  |     {{$itemestatetype->kurdishname}}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -90,7 +101,7 @@
                                                 </option>
                                                 @foreach($UsageTypes as $itemUserage)
                                                     <option value="{{$itemUserage->id}}">
-                                                        {{$itemUserage->Name}}
+                                                        {{$itemUserage->Name}}  |     {{$itemUserage->kurdishname}}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -109,7 +120,7 @@
                                                 </option>
                                                 @foreach($ownershiptype as $itemOwnership)
                                                     <option value="{{$itemOwnership->id}}">
-                                                        {{$itemOwnership->Name}}
+                                                        {{$itemOwnership->Name}}  |     {{$itemOwnership->kurdishname}}
                                                     </option>
                                                 @endforeach
                                             </select>

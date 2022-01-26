@@ -22,9 +22,31 @@ return [
     'searchbtn' => 'شوێن هەڵگر ',
     'LatestProperties' => 'ئاخرێ مۆڵکەکان ',
     'ViewAllProperties' => 'چاولێبوون ',
-    'loginTitlePage' => 'کوشی زینو ',
+    'loginTitlePage' => 'کوشکی زینو ',
     'Username' => 'ناو کاربری',
     'Password' => 'پسورد ',
+    'EsateCode' => 'کد ملک ',
+    'EsateType' => 'نوع ملک',
+
+    'rent' => 'کری',
+    'sale' => 'کرین',
+    'Type' => 'نوع',
+    'Bedrooms' => 'تعدادی خوا',
+    'LandTotalSquare' => 'ژیر بنا',
+    'listTitle' => 'فرتر',
+    'details' => 'جزئیات',
+    'region' => 'منطقه',
+    'floor' => 'تعداد طبقات ',
+    'unitfloor' => 'تعداد واحد در طبقه',
+    'Elevator' => 'آسانسور',
+    'Parking' => 'پارکینگ',
+    'Warehouse' => 'انباری',
+    'Yes' => 'دارد',
+    'No' => 'ندارد',
+    'PriceEstate' => 'قیمت',
+    'PriceEstateRahan' => 'قیمت رهن  ',
+    'PriceEstateRent' => 'قیمت اجاره  ',
+
 ];
 
 ?>

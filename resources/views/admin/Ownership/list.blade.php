@@ -89,6 +89,16 @@
                                                         </div>
 
                                                     </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>
+                                                                Name  Ownership Kurdish
+                                                            </label>
+
+                                                            <input type="text" class="form-control"  name="kurdishname"     id="kurdishname">
+                                                        </div>
+
+                                                    </div>
 
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" v-on:click="AddOwenship()">
@@ -114,6 +124,9 @@
                                                 Name of property type
                                             </th>
                                             <th>
+                                                Name of property type Kurdish
+                                            </th>
+                                            <th>
                                                  operation
                                             </th>
 
@@ -130,6 +143,9 @@
                                                     </td>
                                                     <td>
                                                         {{ $itemregion->Name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $itemregion->kurdishname }}
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
@@ -167,9 +183,21 @@
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
                                                                     <label>
-                                                                        Name of property type
+                                                                        Name of property ownership
                                                                     </label>
-                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NameOwenership',$event)"  >
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"   id="NameOwenership-{{$itemregion->id}}"  name="NameOwenership" >
+
+                                                              {{--      <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NameOwenership',$event)"  >--}}
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Name of property ownership</label>
+
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->kurdishname}}" id="kurdishnameedit-{{$itemregion->id}}"  name="kurdishnameedit" >
+
+
                                                                 </div>
 
                                                             </div>

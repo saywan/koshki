@@ -49,6 +49,9 @@ Route::get('/storage123', function () {
 });
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/contactus', 'HomeController@contactus')->name('contactus');
+Route::get('/EstateRequest', 'HomeController@EstateRequest')->name('EstateRequest');
 Route::get('CheckBirthdayLeoMal','HomeController@CheckBirthdayLeoMal');
 Route::get('CheckTenant','HomeController@CheckTenant');
 Route::get('CheckFinish','HomeController@CheckFinish');

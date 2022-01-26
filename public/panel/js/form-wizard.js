@@ -702,6 +702,7 @@ $(document).ready(function () {
 
                 var region=$('#region').find(':selected').val();
                 var Address=$("#Address_user").val();
+                var Address_user_kurdish=$("#Address_user_kurdish").val();
                 var estatetype=$('#estatetype').find(':selected').val();
                 var usagetype=$('#usagetype').find(':selected').val();
                 var ownership=$('#ownership').find(':selected').val();
@@ -775,6 +776,7 @@ $(document).ready(function () {
 
                 formdata.append('region',region);
                 formdata.append('Address',Address);
+                formdata.append('Address_user_kurdish',Address_user_kurdish);
                 formdata.append('estatetype',estatetype);
                 formdata.append('usagetype',usagetype);
                 formdata.append('ownership',ownership);

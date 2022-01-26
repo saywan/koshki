@@ -40,6 +40,7 @@ class EstateTypeController extends Controller
     {
         $EstateType = new estatetype();
         $EstateType->Name = $request->NameTypeEstate;
+        $EstateType->kurdishname = $request->kurdishname;
 
         if ($EstateType->save()) {
             $message = [
@@ -91,10 +92,11 @@ class EstateTypeController extends Controller
     {
         $Id = $request->Id;
 
-       // dd($request->all());
+
 
         $update = estatetype::where('id', $Id)->update([
-            'Name' => $request->NameEditTypeEstate
+            'Name' => $request->NameEditTypeEstate,
+            'kurdishname' => $request->kurdishnameedit,
         ]);
         if ($update) {
             $message = [

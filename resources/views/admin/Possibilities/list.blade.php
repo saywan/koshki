@@ -88,6 +88,15 @@
                                                         </div>
 
                                                     </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>
+                                                                Kurdish Name of property facilities
+                                                            </label>
+                                                            <input type="text" class="form-control" id="kurdishname" name="kurdishname">
+                                                        </div>
+
+                                                    </div>
 
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" v-on:click="AddPossibilities()">
@@ -110,6 +119,7 @@
                                         <tr>
                                             <th>Row</th>
                                             <th>Name of property facilities</th>
+                                            <th>Name Kurdish  property facilities</th>
                                             <th>Access</th>
 
                                         </tr>
@@ -125,6 +135,9 @@
                                                     </td>
                                                     <td>
                                                         {{ $itemregion->Name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $itemregion->kurdishname }}
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
@@ -162,7 +175,19 @@
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
                                                                     <label>Name of property facilities</label>
-                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NamePossibilities',$event)"  >
+
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"   id="NamePossibilities-{{$itemregion->id}}"  name="NamePossibilities" >
+
+                                                                   {{-- <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NamePossibilities',$event)"  >--}}
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Name of property facilities</label>
+
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->kurdishname}}" id="kurdishnameedit-{{$itemregion->id}}"  name="kurdishnameedit" >
+                                                                {{--    <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NamePossibilities',$event)"  >--}}
                                                                 </div>
 
                                                             </div>

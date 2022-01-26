@@ -43,6 +43,7 @@ const app = new Vue({
         EditNameUsage: "",
         NameRegion: "",
         EditNameRegion: "",
+        KurdishregionName: "",
         city: "سنندج",
         regionselect: "2",
         estatetype: "1",
@@ -655,7 +656,8 @@ const app = new Vue({
         AddTypeEstate: function () {
 
             axios.post('/admin/storeEstateType', {
-                NameTypeEstate: this.NameTypeEstate
+                NameTypeEstate: this.NameTypeEstate,
+                kurdishname: $("#kurdishname").val(),
 
             }).then(response => {
 
@@ -755,7 +757,9 @@ const app = new Vue({
             axios.post('/admin/EditEstateType', {
 
                 Id: Id,
-                NameEditTypeEstate: this.NameTypeEstate
+                NameEditTypeEstate: $(`#NameTypeEstate-${Id}`).val(),
+                kurdishnameedit:  $(`#kurdishnameedit-${Id}`).val(),
+
 
 
             }).then(response => {
@@ -1202,10 +1206,11 @@ const app = new Vue({
         AddOwenship: function () {
 
             axios.post('/admin/storeOwnership', {
-                NameOwnership: this.NameOwnership
+                NameOwnership: this.NameOwnership,
+                kurdishname:$("#kurdishname").val(),
 
             }).then(response => {
-                console.log(response.data);
+
 
                 if (response.data['status'] == 200) {
 
@@ -1239,7 +1244,8 @@ const app = new Vue({
             axios.post('/admin/EditOwnership', {
                 action: 'EditOwnership',
                 Id: Id,
-                EditNameOwnership: this.EditNameOwnership
+                EditNameOwnership: $(`#NameOwenership-${Id}`).val(),
+                kurdishnameedit: $(`#kurdishnameedit-${Id}`).val(),
 
             }).then(response => {
 
@@ -1410,7 +1416,8 @@ const app = new Vue({
         AddPossibilities: function () {
 
             axios.post('/admin/storeFacilities', {
-                NamePossibity: this.NamePossibity
+                NamePossibity: this.NamePossibity,
+                kurdishname:$("#kurdishname").val()
 
             }).then(response => {
                 console.log(response.data);
@@ -1572,8 +1579,8 @@ const app = new Vue({
             axios.post('/admin/EditFacilities', {
 
                 Id: Id,
-                EditNamePossibity: this.EditNamePossibity
-
+                NamePossibilities: $(`#NamePossibilities-${Id}`).val(),
+                kurdishnameedit:  $(`#kurdishnameedit-${Id}`).val(),
 
             }).then(response => {
 
@@ -1606,7 +1613,8 @@ const app = new Vue({
         AddUsageType: function () {
 
             axios.post('/admin/storeUsageType', {
-                NameUsage: this.NameUsage
+                NameUsage: this.NameUsage,
+                kurdishname: $("#kurdishname").val(),
 
             }).then(response => {
                 console.log(response.data);
@@ -1700,7 +1708,9 @@ const app = new Vue({
             axios.post('/admin/EditUsageType', {
 
                 Id: Id,
-                EditNameUsage: this.EditNameUsage
+               // EditNameUsage: this.EditNameUsage
+                EditNameUsage: $(`#NameUsage-${Id}`).val(),
+                kurdishnameedit:  $(`#kurdishnameedit-${Id}`).val(),
 
 
             }).then(response => {
@@ -1740,7 +1750,8 @@ const app = new Vue({
         AddRegion: function () {
 
             axios.post('/admin/storeRegion', {
-                NameRegion: this.NameRegion
+                NameRegion: this.NameRegion,
+                kurdishname: $("#kurdishname").val(),
 
             }).then(response => {
                 console.log(response.data);
@@ -1836,13 +1847,13 @@ const app = new Vue({
 
             axios.post('/admin/EditRegion', {
 
+
                 Id: Id,
-                EditNameRegion: this.EditNameRegion
+                EditNameRegion: $(`#regionname-${Id}`).val(),
+                kurdishnameedit:  $(`#kurdishnameedit-${Id}`).val(),
 
 
             }).then(response => {
-
-
 
                 if (response.data['status'] == 200) {
                     Swal.fire({
@@ -1878,6 +1889,10 @@ const app = new Vue({
 
             if (type == 'regionname') {
                 this.EditNameRegion = event.target.value;
+
+            }
+            if (type == 'KurdishregionName') {
+                this.KurdishregionName = event.target.value;
 
             }
             if (type == 'NameTypeEstate') {

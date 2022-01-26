@@ -94,9 +94,15 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                             <label>
-                                                                 area name
+                                                                 Area Name
                                                             </label>
                                                             <input type="text" class="form-control"  value=""    id="regionname" v-model="NameRegion">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label>
+                                                                Area Name Kurdish
+                                                            </label>
+                                                            <input type="text" class="form-control"     id="kurdishname" >
                                                         </div>
 
                                                     </div>
@@ -120,6 +126,7 @@
                                         <tr>
                                             <th>Row</th>
                                             <th>Name Region</th>
+                                            <th>Kurdish Region Name</th>
                                             <th>access</th>
                                         </tr>
                                         </thead>
@@ -134,6 +141,9 @@
                                                     </td>
                                                     <td>
                                                         {{ $itemregion->Name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $itemregion->kurdishname }}
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
@@ -173,7 +183,14 @@
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
                                                                     <label>Name Region</label>
-                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('regionname',$event)"  >
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"   id="regionname-{{$itemregion->id}}"  name="regionname" >
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Name Region Kurdish</label>
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->kurdishname}}" id="kurdishnameedit-{{$itemregion->id}}"  name="kurdishnameedit" >
                                                                 </div>
 
                                                             </div>

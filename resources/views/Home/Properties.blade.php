@@ -71,8 +71,12 @@
             <div class="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
                 <div class="container">
                     <div class="breadcrumbs-list">
-                        <a href="#">Home</a><a href="#">Pages</a> <span>
-                                ملک های @if($type=='rent') اجاره @elseif($type=='sale')فروش  @endif ژینگه
+                        <a href="#">
+                            @lang('messages.menu1')
+                        </a>
+
+                        <span>
+                                ملک های  @if($type=='rent') @lang('messages.rent') @elseif($type=='sale') @lang('messages.sale')  @endif
                         </span>
                     </div>
                     <div class="share-holder hid-share">
@@ -86,29 +90,20 @@
             <section class="gray-bg small-padding ">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <!-- list-main-wrap-header-->
                             <div class="list-main-wrap-header box-list-header fl-wrap">
                                 <!-- list-main-wrap-title-->
                                 <div class="list-main-wrap-title">
-                                    <h2>Results For : <span>New York Agencys </span><strong>14</strong></h2>
+                                    <h2>Results For : <span>
+                                            @if($type=='rent') @lang('messages.rent') @elseif($type=='sale') @lang('messages.sale')  @endif
+                                        </span><strong>14</strong></h2>
                                 </div>
                                 <!-- list-main-wrap-title end-->
                                 <!-- list-main-wrap-opt-->
                                 <div class="list-main-wrap-opt">
                                     <!-- price-opt-->
-                                    <div class="price-opt">
-                                        <span class="price-opt-title">Sort   by:</span>
-                                        <div class="listsearch-input-item">
-                                            <select data-placeholder="Popularity"
-                                                    class="chosen-select no-search-select">
-                                                <option>Popularity</option>
-                                                <option>Average rating</option>
-                                                <option>Name: A-Z</option>
-                                                <option>Name: Z-A</option>
-                                            </select>
-                                        </div>
-                                    </div>
+
                                     <!-- price-opt end-->
                                 </div>
                                 <!-- list-main-wrap-opt end-->
@@ -187,155 +182,7 @@
                             </div>
                             <!-- pagination end-->
                         </div>
-                        <!-- col-md 8 end -->
-                        <!-- search sidebar-->
-                        <div class="col-md-4">
-                            <div class="list-searh-input-wrap-title fl-wrap"><i class="far fa-sliders-h"></i><span>Search Agent</span>
-                            </div>
-                            <div class="block-box fl-wrap search-sb" id="filters-column">
-                                <!-- listsearch-input-item -->
-                                <div class="listsearch-input-item">
-                                    <label>Keywords</label>
-                                    <input type="text" onClick="this.select()" placeholder="Name , agency..." value=""/>
-                                </div>
-                                <!-- listsearch-input-item end-->
-                                <!-- listsearch-input-item -->
-                                <div class="listsearch-input-item">
-                                    <label>Cities</label>
-                                    <select data-placeholder="All Cities"
-                                            class="chosen-select on-radius no-search-select">
-                                        <option>All Cities</option>
-                                        <option>New York</option>
-                                        <option>London</option>
-                                        <option>Paris</option>
-                                        <option>Kiev</option>
-                                        <option>Moscow</option>
-                                        <option>Dubai</option>
-                                        <option>Rome</option>
-                                        <option>Beijing</option>
-                                    </select>
-                                </div>
-                                <!-- listsearch-input-item end-->
-                                <!-- listsearch-input-item -->
-                                <div class="listsearch-input-item">
-                                    <div class="price-rage-item fl-wrap">
-                                        <span class="pr_title">Rating:</span>
-                                        <input type="text" class="price-range-double" data-min="1" data-max="5"
-                                               name="price-range2" data-step="1" value="1" data-prefix="*">
-                                    </div>
-                                </div>
-                                <!-- listsearch-input-item end-->
-                                <div class="msotw_footer">
-                                    <a href="#" class="btn small-btn float-btn color-bg">Search Agents</a>
-                                    <div class="reset-form reset-btn"><i class="far fa-sync-alt"></i> Reset Filters
-                                    </div>
-                                </div>
-                            </div>
-                            <!--box-widget-->
-                            <div class="box-widget fl-wrap">
-                                <div class="box-widget-title fl-wrap">Featured Agents</div>
-                                <div class="box-widget-content fl-wrap">
-                                    <!--widget-posts-->
-                                    <div class="widget-posts  fl-wrap">
-                                        <ul class="no-list-style">
-                                            <li>
-                                                <div class="widget-posts-img"><a href="agent-single.html"><img
-                                                            src="images/agency/agent/2.jpg" alt=""></a>
-                                                </div>
-                                                <div class="widget-posts-descr agent-post_descr">
-                                                    <h4><a href="agent-single.html">Liza Rose</a></h4>
-                                                    <div class="agent-post_descr_counter fl-wrap"><span>21</span>
-                                                        Property Listings
-                                                    </div>
-                                                    <div class="listing-rating card-popup-rainingvis"
-                                                         data-starrating2="4"></div>
-                                                    <a href="mailto:yourmail@email.com" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Write Message"><i
-                                                            class="fal fa-envelope"></i></a>
-                                                    <a href="tel:123-456-7890" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Call Now"><i
-                                                            class="fal fa-phone"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="widget-posts-img"><a href="agent-single.html"><img
-                                                            src="images/agency/agent/6.jpg" alt=""></a>
-                                                </div>
-                                                <div class="widget-posts-descr agent-post_descr">
-                                                    <h4><a href="agent-single.html">Martin Smith</a></h4>
-                                                    <div class="agent-post_descr_counter fl-wrap"><span>5</span>
-                                                        Property Listings
-                                                    </div>
-                                                    <div class="listing-rating card-popup-rainingvis"
-                                                         data-starrating2="5"></div>
-                                                    <a href="mailto:yourmail@email.com" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Write Message"><i
-                                                            class="fal fa-envelope"></i></a>
-                                                    <a href="tel:123-456-7890" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Call Now"><i
-                                                            class="fal fa-phone"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="widget-posts-img"><a href="agent-single.html"><img
-                                                            src="images/agency/agent/4.jpg" alt=""></a>
-                                                </div>
-                                                <div class="widget-posts-descr agent-post_descr">
-                                                    <h4><a href="agent-single.html">Andy Sposty</a></h4>
-                                                    <div class="agent-post_descr_counter fl-wrap"><span>10</span>
-                                                        Property Listings
-                                                    </div>
-                                                    <div class="listing-rating card-popup-rainingvis"
-                                                         data-starrating2="4"></div>
-                                                    <a href="mailto:yourmail@email.com" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Write Message"><i
-                                                            class="fal fa-envelope"></i></a>
-                                                    <a href="tel:123-456-7890" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Call Now"><i
-                                                            class="fal fa-phone"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="widget-posts-img"><a href="agent-single.html"><img
-                                                            src="images/agency/agent/1.jpg" alt=""></a>
-                                                </div>
-                                                <div class="widget-posts-descr agent-post_descr">
-                                                    <h4><a href="agent-single.html">Anna Lips</a></h4>
-                                                    <div class="agent-post_descr_counter fl-wrap"><span>12</span>
-                                                        Property Listings
-                                                    </div>
-                                                    <div class="listing-rating card-popup-rainingvis"
-                                                         data-starrating2="5"></div>
-                                                    <a href="mailto:yourmail@email.com" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Write Message"><i
-                                                            class="fal fa-envelope"></i></a>
-                                                    <a href="tel:123-456-7890" class="tolt ftr-btn"
-                                                       data-microtip-position="top-left" data-tooltip="Call Now"><i
-                                                            class="fal fa-phone"></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <!-- widget-posts end-->
-                                    <a href="listing.html" class="btn float-btn color-bg small-btn">View All Agents</a>
-                                </div>
-                            </div>
-                            <!--box-widget end -->
-                            <!--box-widget-->
-                            <div class="box-widget fl-wrap">
-                                <div class="banner-widget fl-wrap">
-                                    <div class="bg-wrap bg-parallax-wrap-gradien">
-                                        <div class="bg  " data-bg="images/all/blog/1.jpg"></div>
-                                    </div>
-                                    <div class="banner-widget_content">
-                                        <h5>Do you want to join our real estate network?</h5>
-                                        <a href="#" class="btn float-btn color-bg small-btn">Become an Agent</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--box-widget end -->
-                        </div>
-                        <!-- search sidebar end-->
+
                     </div>
                 </div>
             </section>
@@ -572,6 +419,15 @@
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&amp;libraries=places"></script>
 <script src="{{asset("Content/js/map-single.js")}}"></script>
+<script type="text/javascript">
+
+    var url = "{{ route('changeLang') }}";
+
+    $(".changeLang").change(function(){
+        window.location.href = url + "?lang="+ $(this).val();
+    });
+
+</script>
 </body>
 
 

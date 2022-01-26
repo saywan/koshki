@@ -40,8 +40,10 @@ class OwnershipController extends Controller
     {
         $EstateType = new ownershiptype();
         $EstateType->Name = $request->NameOwnership;
+        $EstateType->kurdishname = $request->kurdishname;
 
         if ($EstateType->save()) {
+
             $message = [
                 'status' => 200,
                 'insert success ',
@@ -94,7 +96,8 @@ class OwnershipController extends Controller
         // dd($request->all());
 
         $update = ownershiptype::where('id', $Id)->update([
-            'Name' => $request->EditNameOwnership
+            'Name' => $request->EditNameOwnership,
+            'kurdishname' => $request->kurdishnameedit,
         ]);
         if ($update) {
 

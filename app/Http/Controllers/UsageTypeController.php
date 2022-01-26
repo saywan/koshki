@@ -39,6 +39,7 @@ class UsageTypeController extends Controller
     {
         $EstateType = new UsageTypes();
         $EstateType->Name = $request->NameUsage;
+        $EstateType->kurdishname = $request->kurdishname;
 
         if ($EstateType->save()) {
             $message = [
@@ -93,7 +94,8 @@ class UsageTypeController extends Controller
         // dd($request->all());
 
         $update = UsageTypes::where('id', $Id)->update([
-            'Name' => $request->EditNameUsage
+            'Name' => $request->EditNameUsage,
+            'kurdishname' => $request->kurdishnameedit,
         ]);
         if ($update) {
 

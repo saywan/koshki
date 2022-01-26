@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7107ceda-c36a-426c-a79d-8274992e30f5" name="Default Changelist" comment="" />
+    <list default="true" id="7107ceda-c36a-426c-a79d-8274992e30f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Home/EstateRequest.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Home/about.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Home/contactus.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AreaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EstateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EstateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EstateTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EstateTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FacilitiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FacilitiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LangController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OwnershipController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OwnershipController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsageTypeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsageTypeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/estateinfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/estateinfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Content/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/Content/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Content/dark/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Content/dark/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/Content/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/Content/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/panel/js/form-wizard.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/panel/js/form-wizard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ku/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ku/messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Home/Header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Home/Header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Home/Properties.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Home/Properties.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Home/property.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Home/property.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Home/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Home/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Estate/New.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Estate/New.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Estate/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Estate/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/EstateType/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/EstateType/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Ownership/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Ownership/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/Possibilities/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/Possibilities/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/UsageType/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/UsageType/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/region/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/region/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +64,9 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -133,22 +182,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TetherApi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Home" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\MAMP\htdocs\koshki_realEstate\app\Model" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\koshki_realEstate\resources\views\Home" />
       <recent name="C:\MAMP\htdocs\koshki_realEstate\resources\views\admin" />
       <recent name="C:\MAMP\htdocs\koshki_realEstate\resources\views\admin\Estate" />
       <recent name="C:\MAMP\htdocs\koshki_realEstate\resources\lang" />
       <recent name="C:\MAMP\htdocs\koshki_realEstate\resources\views\auth" />
-      <recent name="C:\MAMP\htdocs\koshki_realEstate\app\Http\Controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\koshki_realEstate\app\Model" />
     </key>
   </component>
   <component name="RunManager">
@@ -170,12 +219,24 @@
       <workItem from="1642400292325" duration="1368000" />
       <workItem from="1642402036793" duration="435000" />
       <workItem from="1642402738014" duration="101084000" />
-      <workItem from="1643049758679" duration="12461000" />
+      <workItem from="1643049758679" duration="14069000" />
+      <workItem from="1643090325476" duration="24908000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="1590" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1642838701006">
@@ -191,11 +252,11 @@
     </state>
     <state x="1779" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1642916920214" />
     <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1642717030668" />
-    <state x="1829" y="119" key="FileChooserDialogImpl" timestamp="1642919522466">
+    <state x="1829" y="119" key="FileChooserDialogImpl" timestamp="1643177205432">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1641297307099" />
-    <state x="1829" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1642919522466" />
+    <state x="1829" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1643177205432" />
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1642681836752" />
     <state width="1323" height="172" key="GridCell.Tab.0.bottom" timestamp="1642395797548">
       <screen x="0" y="0" width="1366" height="728" />
@@ -217,20 +278,20 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1769" y="71" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1643009498740" />
-    <state x="1883" y="283" key="NewPhpFileDialog" timestamp="1643009508825">
+    <state x="1883" y="283" key="NewPhpFileDialog" timestamp="1643196676615">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1883" y="283" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1643009508825" />
+    <state x="1883" y="283" key="NewPhpFileDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1643196676615" />
     <state x="517" y="283" key="NewPhpFileDialog/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1642717488770" />
-    <state x="391" y="81" width="583" height="566" key="find.popup" timestamp="1643061829535">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1757" y="81" width="583" height="566" key="find.popup" timestamp="1643176581895">
+      <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1757" y="81" width="583" height="566" key="find.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1642312401878" />
+    <state x="1757" y="81" width="583" height="566" key="find.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1643176581895" />
     <state x="391" y="81" width="583" height="566" key="find.popup/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1643061829535" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1643059173608">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1643196034655">
+      <screen x="1366" y="0" width="1366" height="728" />
     </state>
-    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1642323370151" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1643196034655" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1643059173608" />
   </component>
 </project>

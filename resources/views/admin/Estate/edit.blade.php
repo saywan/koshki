@@ -327,7 +327,9 @@
                                         </div>
                                         <br>
 
-                                        <button v-on:click="EditEstate({{$estateinfo->id}},'admin')" type="button" class="btn btn-primary">ویرایش ملک</button>
+                                        <button v-on:click="EditEstate({{$estateinfo->id}},'admin')" type="button" class="btn btn-primary">
+                                        Edit
+                                        </button>
 
                                     </div>
                                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -774,8 +776,8 @@
                         var _this = this;
                         Swal.fire({
                             icon: "success",
-                            title: "آپلود موفق آمیز",
-                            text: "تصویر با موفقیت اپلود شد",
+                            title: "Upload Success",
+                            text: "Image is Upload",
                             customClass: {confirmButton: "btn btn-success"}
                         });
                         _this.removeAllFiles();

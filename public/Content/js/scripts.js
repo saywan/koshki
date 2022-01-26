@@ -314,7 +314,7 @@ function initHomeradar() {
         $(this).parents(".tabs-act").find(".tab-content").not(b).css("display", "none");
         $(b).fadeIn();
     });
-    //   ionRangeSlider------------------	
+    //   ionRangeSlider------------------
     var sliders_init = $(".price-range");
     sliders_init.ionRangeSlider({
         type: "single",
@@ -426,7 +426,7 @@ function initHomeradar() {
         $(this).toggleClass("act-category");
     });
     //   Isotope------------------
- 
+
         function initIsotope() {
     if ($(".gallery-items").length) {
             var agf = $(".gallery-items").isotope({
@@ -449,7 +449,7 @@ function initHomeradar() {
                 $(".gallery-filters a").removeClass("gallery-filter-active");
                 $(this).addClass("gallery-filter-active");
             });
-        }   
+        }
     }
 initIsotope();
     // modal ------------------
@@ -565,11 +565,16 @@ initIsotope();
     // Mob Menu------------------
     function headerModalOpt() {
         $(".lang-item .header-opt-modal-list li a").on('click', function (e) {
+
+
+            var url = "{{ route('changeLang') }}";
             e.preventDefault();
             var thdatlantext = $(this).data("lantext");
+
             $(".lang-item li a").removeClass("current-lan");
             $(this).addClass("current-lan");
             $(".lang-item h4 span  ").text(thdatlantext);
+            window.location.href = '/lang/change' + "?lang="+ $(this).data("lantext");
         });
         $(".currency-item .header-opt-modal-list li a").on('click', function (e) {
             e.preventDefault();
@@ -958,7 +963,7 @@ function initparallax() {
 		$(".background-vimeo , .background-youtube-wrapper ").remove();
         $("html, body").animate({
             scrollTop: 0
-        }, 1);	
+        }, 1);
 	}
 }
 //   Init All ------------------

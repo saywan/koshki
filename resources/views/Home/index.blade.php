@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="ku">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 
 <head>
@@ -162,28 +162,31 @@
                                             <ul class="list-single-opt_header_cat">
                                                 <li><a href="#" class="cat-opt blue-bg">
                                                         @if($itemestate->advType == 'rent')
-                                                            اجاره
+                                                            @lang('messages.rent')
                                                         @else
-                                                            فروشی
+                                                            @lang('messages.sale')
                                                         @endif
                                                     </a></li>
                                                 <li><a href="#" class="cat-opt color-bg">
                                                         {{\App\Helpers\Helper::EstateType($itemestate->EstateTypeId)}}
+
+
                                                     </a>
                                                 </li>
                                             </ul>
-                                            <a href="#" class="geodir_save-btn tolt" data-microtip-position="left"
-                                               data-tooltip="Save"><span><i class="fal fa-heart"></i></span></a>
-                                            <a href="#" class="compare-btn tolt" data-microtip-position="left"
-                                               data-tooltip="Compare"><span><i class="fal fa-random"></i></span></a>
-                                            <div class="geodir-category-listing_media-list">
-                                                <span><i class="fas fa-camera"></i> 8</span>
-                                            </div>
+
+
                                         </div>
                                         <div class="geodir-category-content fl-wrap">
                                             <h3 class="title-sin_item"><a
                                                     href="{{url('Estate/'.$itemestate->TrackingCode)}}">
                                                     {{\App\Helpers\Helper::EstatetypeRegion($itemestate->RegionId)}}
+                                                    -
+                                                    @if(session()->get('locale') == 'en')
+                                                       {{$itemestate->Address}}
+                                                    @elseif(session()->get('locale') == 'ku')
+                                                        {{$itemestate->address_ku}}
+                                                    @endif
 
                                                 </a></h3>
                                             <div class="geodir-category-content_price">
@@ -498,6 +501,15 @@
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&amp;libraries=places"></script>
 <script src="{{asset("Content/js/map-single.js")}}"></script>
+<script type="text/javascript">
+
+    var url = "{{ route('changeLang') }}";
+
+    $(".changeLang").change(function(){
+        window.location.href = url + "?lang="+ $(this).val();
+    });
+
+</script>
 </body>
 
 

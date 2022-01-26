@@ -46,6 +46,18 @@ class HomeController extends Controller
 
         return view('Home.index', ['estate' => $estateinfo,  'setting' => $setting, 'region' => $region, 'estateVIP' => $estateVIP, 'estatePresell' => $estatePresell]);
     }
+    public function about(){
+
+        return view('Home.about');
+    }
+    public function contactus(){
+
+        return view('Home.contactus');
+    }
+    public function EstateRequest(){
+
+        return view('Home.EstateRequest');
+    }
     public function EstateProperty($trackcode)
     {
 

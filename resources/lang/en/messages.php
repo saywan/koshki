@@ -23,6 +23,27 @@ return [
     'loginTitlePage' => 'Koshki Zeniw ',
     'Username' => 'Username ',
     'Password' => 'Password ',
+    'EsateCode' => 'Estate Code',
+    'EsateType' => 'Estate Type',
+    'rent' => 'rent',
+    'sale' => 'sale',
+    'Type' => 'Type',
+    'Bedrooms' => 'Bedrooms',
+    'LandTotalSquare' => 'Land Total Square',
+    'listTitle' => 'About This Listing',
+    'details' => 'Details',
+    'region' => 'region',
+    'floor' => 'floor',
+    'unitfloor' => 'unitfloor',
+    'Elevator' => 'Elevator',
+    'Parking' => 'Parking',
+    'Warehouse' => 'Warehouse',
+    'Yes' => 'Yes',
+    'No' => 'No',
+    'PriceEstate' => 'Price ',
+    'PriceEstateRahan' => 'Price Estate Rent ',
+    'PriceEstateRent' => 'Price Estate Rent ',
+
 
 ];
 

@@ -215,6 +215,7 @@ class EstateController extends Controller
 
         $EstateType->RegionId = $request->region;
         $EstateType->Address = $request->Address_user;
+        $EstateType->address_ku = $request->Address_user_kurdish;
         $EstateType->LandTotalSquare = $totalLand;
         $EstateType->SquareFootage = $squrefootage;
         $EstateType->RoomNumber = $beedroomtotal;

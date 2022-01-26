@@ -88,6 +88,16 @@
                                                         </div>
 
                                                     </div>
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label>
+                                                               Name Usage Kurdish
+                                                            </label>
+
+                                                            <input type="text" class="form-control"  name="kurdishname"     id="kurdishname">
+                                                        </div>
+
+                                                    </div>
 
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" v-on:click="AddUsageType()">
@@ -112,6 +122,9 @@
                                             <th>
                                               Usage Type
                                             </th>
+                                            <th>
+                                              Usage Type Kurdish
+                                            </th>
                                             <th>access</th>
 
                                         </tr>
@@ -127,6 +140,9 @@
                                                     </td>
                                                     <td>
                                                         {{ $itemregion->Name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $itemregion->kurdishname }}
                                                     </td>
                                                     <td>
                                                         <div class="d-flex">
@@ -173,7 +189,20 @@
                                                                     <label>
                                                                         Name Usage
                                                                     </label>
-                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NameUsage',$event)"  >
+                                                                  {{--  <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NameUsage',$event)"  >--}}
+
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->Name}}"   id="NameUsage-{{$itemregion->id}}"  name="NameUsage" >
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Name of property facilities</label>
+
+                                                                    <input type="text" class="form-control"  value="{{$itemregion->kurdishname}}" id="kurdishnameedit-{{$itemregion->id}}"  name="kurdishnameedit" >
+
+
                                                                 </div>
 
                                                             </div>

@@ -41,6 +41,7 @@ class FacilitiesController extends Controller
     {
         $EstateType = new possibility();
         $EstateType->Name = $request->NamePossibity;
+        $EstateType->kurdishname = $request->kurdishname;
 
         if ($EstateType->save()) {
             $message = [
@@ -92,10 +93,12 @@ class FacilitiesController extends Controller
     {
         $Id = $request->Id;
 
-        // dd($request->all());
+
 
         $update = possibility::where('id', $Id)->update([
-            'Name' => $request->EditNamePossibity
+            'Name' => $request->NamePossibilities,
+            'kurdishname' => $request->kurdishnameedit,
+
         ]);
         if ($update) {
 
