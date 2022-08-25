@@ -24,43 +24,22 @@
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-start mb-0">
-                                List Estate
+                                @lang('messages.TypeEstate')
                             </h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">Home</a>
+                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}"> @lang('messages.House')</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">Estate</a>
+                                    <li class="breadcrumb-item"><a href="#">@lang('messages.TypeEstate')</a>
                                     </li>
-                                    <li class="breadcrumb-item active">List Estate
+                                    <li class="breadcrumb-item active"> @lang('messages.TypeEstate')
                                     </li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                    <div class="mb-1 breadcrumb-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    data-feather="grid"></i></button>
-                            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                                            href="app-todo.html"><i class="me-1"
-                                                                                                    data-feather="check-square"></i><span
-                                        class="align-middle">Todo</span></a><a class="dropdown-item"
-                                                                               href="app-chat.html"><i class="me-1"
-                                                                                                       data-feather="message-square"></i><span
-                                        class="align-middle">Chat</span></a><a class="dropdown-item"
-                                                                               href="app-email.html"><i class="me-1"
-                                                                                                        data-feather="mail"></i><span
-                                        class="align-middle">Email</span></a><a class="dropdown-item"
-                                                                                href="app-calendar.html"><i class="me-1"
-                                                                                                            data-feather="calendar"></i><span
-                                        class="align-middle">Calendar</span></a></div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="content-body">
 
@@ -71,10 +50,10 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">
-                                  Estate Type
+                                   @lang('messages.TypeEstate')
                                 </h4>
                                 <button type="button" class="btn light btn-success" data-toggle="modal" data-target="#AddRegion">
-                                    New Estate Type
+                                     @lang('messages.TypeEstate')
                                 </button>
 
                                 <div class="modal fade bd-example-modal-lg" id="AddRegion" tabindex="-1" role="dialog" aria-hidden="true">
@@ -133,10 +112,12 @@
                                         <thead>
                                         <thead>
                                         <tr>
-                                            <th>Row</th>
-                                            <th> Estate Type </th>
-                                            <th> Estate Type Kurdish </th>
-                                            <th>access</th>
+                                            <th> @lang('messages.Row')</th>
+                                            <th> @lang('messages.TypeEstate')</th>
+                                            <th> @lang('messages.TypeEstate')</th>
+                                            <th> @lang('messages.access')</th>
+
+
 
                                         </tr>
                                         </thead>
@@ -179,7 +160,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">
-                                                            Edit property type
+                                                            @lang('messages.TypeEstate')
                                                             <strong class="badge badge-warning">{{$itemregion->Name}}  </strong>
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
@@ -192,7 +173,7 @@
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
                                                                     <label>
-                                                                        Name of property type
+                                                                        @lang('messages.TypeEstate')
                                                                     </label>
 
                                                                     <input type="text" class="form-control"  value="{{$itemregion->Name}}"   id="NameTypeEstate-{{$itemregion->id}}"  name="NameTypeEstate" >
@@ -208,7 +189,7 @@
                                                             </div>
                                                             <br>
                                                             <button type="submit" class="btn btn-primary" v-on:click="EditTypeEstate({{$itemregion->id}})">
-                                                                Edit
+                                                                @lang('messages.save')
                                                             </button>
 
                                                         </div>

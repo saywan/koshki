@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Helpers\Helper;
 use App\Model\AdminSettings;
 use App\Model\Contract;
@@ -49,9 +50,21 @@ class AdminController extends Controller
 
         Smsirlaravel::ultraFastSend(['username' => 'سیوان گنجی '], 44147, '09035478091');
     }
+    public function change(Request $request)
+    {
 
+       // dd($request->all());
+
+        App::setLocale($request->lang);
+        session()->put('locale', $request->lang);
+
+       // dd(\Session::get('locale'));
+
+        return redirect()->back();
+    }
     public function index()
     {
+       // dd(Hash::make('*NNP%S4YHP'));
         return view('admin.index');
     }
 

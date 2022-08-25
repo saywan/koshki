@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\estateimage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,30 @@ Route::get('lang/change', 'LangController@change')->name('changeLang');
 
 Auth::routes();
 
+Route::get('/', 'V3Controller@index')->name('home');
+Route::get('/about', 'V3Controller@about')->name('about');
+Route::get('/contactus', 'V3Controller@contactus')->name('contactus');
+Route::get('/EstateRequest', 'V3Controller@EstateRequest')->name('EstateRequest');
+Route::get('CheckBirthdayLeoMal', 'V3Controller@CheckBirthdayLeoMal');
+Route::get('CheckTenant', 'V3Controller@CheckTenant');
+Route::get('CheckFinish', 'V3Controller@CheckFinish');
+Route::get('Estate/{trackcode}', 'V3Controller@EstateProperty');
+Route::get('Project/{trackcode}', 'V3Controller@ProjectProperty');
+Route::get('EstateProperties/{rent}', 'V3Controller@getProperties');
+Route::get('Search', 'V3Controller@showsearch');
+Route::get('project', 'V3Controller@showproject');
+
+Route::get('/getRegion', 'HomeController@getRegion');
+Route::get('/getUsageType', 'HomeController@getUsageType');
+Route::get('/getEstateOwnerShip', 'HomeController@getEstateOwnerShip');
+Route::get('/getFacilities', 'HomeController@getFacilities');
+Route::get('/getEstatetype', 'HomeController@getEstatetype');
+Route::get('/getEstate', 'HomeController@getEstate');
+
+
+Route::group(['prefix' => '{locale}'], function () {
+    Route::get('/', 'HomeController@index')->name('home')->middleware('setLocale');
+});
 
 
 Route::get('/cc', function () {
@@ -48,33 +73,10 @@ Route::get('/storage123', function () {
     echo '<script>alert("linked")</script>';
 });
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/contactus', 'HomeController@contactus')->name('contactus');
-Route::get('/EstateRequest', 'HomeController@EstateRequest')->name('EstateRequest');
-Route::get('CheckBirthdayLeoMal','HomeController@CheckBirthdayLeoMal');
-Route::get('CheckTenant','HomeController@CheckTenant');
-Route::get('CheckFinish','HomeController@CheckFinish');
-Route::get('Estate/{trackcode}','HomeController@EstateProperty');
 
-Route::get('EstateProperties/{rent}','HomeController@getProperties');
+Route::group(['prefix' => 'admin/', 'as' => 'admin.', 'middleware' => ['admin']], function () {
 
-Route::get('Search','HomeController@showsearch');
-
-Route::get('/getRegion','HomeController@getRegion');
-Route::get('/getUsageType','HomeController@getUsageType');
-Route::get('/getEstateOwnerShip','HomeController@getEstateOwnerShip');
-Route::get('/getFacilities','HomeController@getFacilities');
-Route::get('/getEstatetype','HomeController@getEstatetype');
-Route::get('/getEstate','HomeController@getEstate');
-
-
-Route::group(['prefix' => '{locale}'],function (){
-    Route::get('/', 'HomeController@index')->name('home')->middleware('setLocale');
-});
-
-Route::group(['prefix' => 'admin/','as'=>'admin.','middleware'=>['admin']],function (){
-
+    Route::get('lang/change', 'AdminController@change')->name('changeLang');
 
     Route::get('/cc', function () {
         Artisan::call('cache:clear');
@@ -107,13 +109,25 @@ Route::group(['prefix' => 'admin/','as'=>'admin.','middleware'=>['admin']],funct
     Route::get('/', 'AdminController@index')->name('index');
     Route::get('/index', 'AdminController@index')->name('index');
 
+
+    //Prject  Part
+    Route::get('CreateProject', 'ProjectController@create')->name('CreateProject');
+    Route::get('Project', 'ProjectController@index')->name('Project');
+    Route::post('storeProject', 'ProjectController@store')->name('storeProject');
+    Route::get('Project/edit/{id}', 'ProjectController@edit')->name('portal.ShowEditProject');
+    Route::post('UpdateProject', 'ProjectController@update')->name('UpdateProject');
+
+
+
     //Estate Part
     Route::get('Estate', 'EstateController@index')->name('Estate');
     Route::get('image', 'EstateController@image')->name('image');
+
     Route::get('CreateEstate', 'EstateController@create')->name('CreateEstate');
     Route::post('storeEstate', 'EstateController@store')->name('storeEstate');
     Route::post('ChangeStatusEstate', 'EstateController@ChangeStatusEstate')->name('ChangeStatusEstate');
     Route::post('ChangeStatusEstateUser', 'EstateController@ChangeStatusEstateUser')->name('ChangeStatusEstateUser');
+
     Route::get('Estate/edit/{id}', 'EstateController@edit')->name('portal.ShowEditProduct');
     Route::post('UpdateEstate', 'EstateController@update')->name('UpdateEstate');
 
@@ -130,41 +144,35 @@ Route::group(['prefix' => 'admin/','as'=>'admin.','middleware'=>['admin']],funct
     Route::post('ChangeBalconyEstate', 'EstateController@ChangeBalconyEstate')->name('ChangeBalconyEstate');
 
     Route::post('DeleteEstate', 'EstateController@destroy')->name('DeleteEstate');
+    Route::post('AddPossibilitiesToEstate', 'EstateController@AddPossibilitiesToEstate')->name('AddPossibilitiesToEstate');
 
     Route::post('DeleteImageEstate', 'EstateController@DeleteImageEstate')->name('DeleteImageEstate');
 
-    Route::post('uploadImage','EstateController@uploadImageEstate')->name('uploadImage');
+    Route::post('uploadImage', 'EstateController@uploadImageEstate')->name('uploadImage');
 
-    Route::get('download/{Id}', function($Id)
-    {
+    Route::get('download/{Id}', function ($Id) {
 
 
-        $estesImage=estateimage::where('id',$Id)->first();
-        $photoname=$estesImage->photo;
-        $namephoto=$estesImage->namephoto;
-        $namefolder=$estesImage->namefolder;
+        $estesImage = estateimage::where('id', $Id)->first();
+        $photoname = $estesImage->photo;
+        $namephoto = $estesImage->namephoto;
+        $namefolder = $estesImage->namefolder;
 
         // Check if file exists in app/storage/file folder
-        $file_path = public_path().$photoname;
+        $file_path = public_path() . $photoname;
 
 
-        if (file_exists($file_path))
-        {
+        if (file_exists($file_path)) {
             // Send Download
 
-            return Response::download($file_path,$namephoto, [
-                'Content-Length: '. filesize($file_path)
+            return Response::download($file_path, $namephoto, [
+                'Content-Length: ' . filesize($file_path)
             ]);
-        }
-        else
-        {
+        } else {
             // Error
             exit('Requested file does not exist on our server!');
         }
-    })    ->where('filename', '[A-Za-z0-9\-\_\.]+');
-
-
-
+    })->where('filename', '[A-Za-z0-9\-\_\.]+');
 
 
     Route::get('CreateRegion', 'AreaController@create')->name('CreateRegion');
@@ -197,3 +205,63 @@ Route::group(['prefix' => 'admin/','as'=>'admin.','middleware'=>['admin']],funct
     Route::post('EditOwnership', 'OwnershipController@update')->name('EditOwnership');
 
 });
+
+/*Route::group(['prefix' => 'v1/'],function (){
+
+    Route::get('/', 'V1Controller@index')->name('home');
+    Route::get('/about', 'V1Controller@about')->name('about');
+    Route::get('/contactus', 'V1Controller@contactus')->name('contactus');
+    Route::get('/EstateRequest', 'V1Controller@EstateRequest')->name('EstateRequest');
+    Route::get('CheckBirthdayLeoMal','V1Controller@CheckBirthdayLeoMal');
+    Route::get('CheckTenant','V1Controller@CheckTenant');
+    Route::get('CheckFinish','V1Controller@CheckFinish');
+    Route::get('Estate/{trackcode}','V1Controller@EstateProperty');
+    Route::get('EstateProperties/{rent}','V1Controller@getProperties');
+    Route::get('Search','V1Controller@showsearch');
+});*/
+
+/*Route::group(['prefix' => 'v2/'],function (){
+
+    Route::get('/', 'V2Controller@index')->name('home');
+    Route::get('/about', 'V2Controller@about')->name('about');
+    Route::get('/contactus', 'V2Controller@contactus')->name('contactus');
+    Route::get('/EstateRequest', 'V2Controller@EstateRequest')->name('EstateRequest');
+    Route::get('CheckBirthdayLeoMal','V2Controller@CheckBirthdayLeoMal');
+    Route::get('CheckTenant','V2Controller@CheckTenant');
+    Route::get('CheckFinish','V2Controller@CheckFinish');
+    Route::get('project','V2Controller@showproject');
+    Route::get('Estate/{trackcode}','V2Controller@EstateProperty');
+    Route::get('EstateProperties/{rent}','V2Controller@getProperties');
+    Route::get('Search','V2Controller@showsearch');
+});*/
+
+/*Route::group(['prefix' => 'v4/'],function (){
+
+    Route::get('/', 'V4Controller@index')->name('home');
+    Route::get('/about', 'V4Controller@about')->name('about');
+    Route::get('/contactus', 'V4Controller@contactus')->name('contactus');
+    Route::get('/EstateRequest', 'V4Controller@EstateRequest')->name('EstateRequest');
+    Route::get('CheckBirthdayLeoMal','V4Controller@CheckBirthdayLeoMal');
+    Route::get('CheckTenant','V4Controller@CheckTenant');
+    Route::get('CheckFinish','V4Controller@CheckFinish');
+    Route::get('Estate/{trackcode}','V4Controller@EstateProperty');
+    Route::get('EstateProperties/{rent}','V4Controller@getProperties');
+    Route::get('Search','V4Controller@showsearch');
+});
+
+Route::group(['prefix' => 'v5/'],function (){
+
+    Route::get('/', 'V5Controller@index')->name('home');
+    Route::get('/about', 'V5Controller@about')->name('about');
+    Route::get('/contactus', 'V5Controller@contactus')->name('contactus');
+    Route::get('/EstateRequest', 'V5Controller@EstateRequest')->name('EstateRequest');
+    Route::get('CheckBirthdayLeoMal','V5Controller@CheckBirthdayLeoMal');
+    Route::get('CheckTenant','V5Controller@CheckTenant');
+    Route::get('CheckFinish','V5Controller@CheckFinish');
+    Route::get('Estate/{trackcode}','V5Controller@EstateProperty');
+    Route::get('EstateProperties/{rent}','V5Controller@getProperties');
+    Route::get('Search','V5Controller@showsearch');
+});*/
+
+
+

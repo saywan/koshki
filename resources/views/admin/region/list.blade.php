@@ -24,43 +24,22 @@
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-start mb-0">
-                                List Estate
+                                @lang('messages.Region')
                             </h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">Home</a>
+                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">  @lang('messages.House')</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">Estate</a>
+                                    <li class="breadcrumb-item"><a href="#">  @lang('messages.Region')</a>
                                     </li>
-                                    <li class="breadcrumb-item active">List Estate
+                                    <li class="breadcrumb-item active">  @lang('messages.Region')
                                     </li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                    <div class="mb-1 breadcrumb-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    data-feather="grid"></i></button>
-                            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                                            href="app-todo.html"><i class="me-1"
-                                                                                                    data-feather="check-square"></i><span
-                                        class="align-middle">Todo</span></a><a class="dropdown-item"
-                                                                               href="app-chat.html"><i class="me-1"
-                                                                                                       data-feather="message-square"></i><span
-                                        class="align-middle">Chat</span></a><a class="dropdown-item"
-                                                                               href="app-email.html"><i class="me-1"
-                                                                                                        data-feather="mail"></i><span
-                                        class="align-middle">Email</span></a><a class="dropdown-item"
-                                                                                href="app-calendar.html"><i class="me-1"
-                                                                                                            data-feather="calendar"></i><span
-                                        class="align-middle">Calendar</span></a></div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="content-body">
 
@@ -69,10 +48,10 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4>
-                                    List Region
+                                    @lang('messages.Region')
                                 </h4>
                                 <button type="button" class="btn light btn-danger" data-toggle="modal" data-target="#AddRegion">
-                                    New area
+                                    @lang('messages.Region')
                                 </button>
                                 <div class="modal fade bd-example-modal-lg" id="AddRegion" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
@@ -81,7 +60,7 @@
                                                 <h5 class="modal-title">
 
 
-                                                    New area
+                                                    @lang('messages.Region')
 
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
@@ -94,13 +73,13 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                             <label>
-                                                                 Area Name
+                                                                @lang('messages.Region')
                                                             </label>
                                                             <input type="text" class="form-control"  value=""    id="regionname" v-model="NameRegion">
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label>
-                                                                Area Name Kurdish
+                                                                @lang('messages.Region')
                                                             </label>
                                                             <input type="text" class="form-control"     id="kurdishname" >
                                                         </div>
@@ -124,10 +103,11 @@
                                     <table class="table table-striped table-hover" id="tableExport" style="width:100%;">
                                         <thead>
                                         <tr>
-                                            <th>Row</th>
-                                            <th>Name Region</th>
-                                            <th>Kurdish Region Name</th>
-                                            <th>access</th>
+                                            <th> @lang('messages.Row')</th>
+                                            <th> @lang('messages.Region')</th>
+                                            <th> @lang('messages.Region')</th>
+                                            <th> @lang('messages.access')</th>
+
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -170,7 +150,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">
-                                                           Edit Region
+                                                            <th> @lang('messages.Region')</th>
                                                             <strong class="badge badge-warning">{{$itemregion->Name}}  </strong>
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
@@ -182,14 +162,14 @@
 
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
-                                                                    <label>Name Region</label>
+                                                                    <label> @lang('messages.Region') </label>
                                                                     <input type="text" class="form-control"  value="{{$itemregion->Name}}"   id="regionname-{{$itemregion->id}}"  name="regionname" >
                                                                 </div>
 
                                                             </div>
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
-                                                                    <label>Name Region Kurdish</label>
+                                                                    <label> @lang('messages.Region')</label>
                                                                     <input type="text" class="form-control"  value="{{$itemregion->kurdishname}}" id="kurdishnameedit-{{$itemregion->id}}"  name="kurdishnameedit" >
                                                                 </div>
 
@@ -197,7 +177,7 @@
 
                                                             <br>
                                                             <button type="submit" class="btn btn-primary" v-on:click="EditRegion({{$itemregion->id}})">
-                                                                Edit
+                                                                @lang('messages.save')
                                                             </button>
 
                                                         </div>

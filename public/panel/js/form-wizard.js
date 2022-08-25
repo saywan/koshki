@@ -137,7 +137,7 @@ $(document).ready(function () {
                 var region = $('#region').find(':selected').val();
                 var estatetype = $('#estatetype').find(':selected').val();
                 var usagetype = $('#usagetype').find(':selected').val();
-                var ownership = $('#ownership').find(':selected').val();
+               // var ownership = $('#ownership').find(':selected').val();
                 var postion = $('#postion').find(':selected').val();
 
                 if (currentIndex === 0) {
@@ -157,7 +157,8 @@ $(document).ready(function () {
                         $("#yearmake").show();
                         $("#beedroomtotal").show();
                         $("#totalfloordiv").show();
-                    } else if (estatetype == 2) {
+                    }
+                    else if (estatetype == 2) {
                         $("#totalLand").show();
                         $("#squrefootage").show();
                         $("#yearmake").show();
@@ -165,19 +166,23 @@ $(document).ready(function () {
                         $("#totalfloordiv").show();
                         $("#floordiv").show();
                         $("#unit").show();
-                    } else if (estatetype == 3) {
+                    }
+                    else if (estatetype == 3) {
                         $("#totalLand").show();
-                    } else if (estatetype == 4) {
+                    }
+                    else if (estatetype == 4) {
                         $("#totalLand").show();
                         $("#squrefootage").show();
                         $("#yearmake").show();
                         $("#beedroomtotal").show();
                         $("#totalfloordiv").show();
                         $("#floordiv").show();
-                    } else if (estatetype == 5) {
+                    }
+                    else if (estatetype == 5) {
                         $("#totalLand").show();
 
-                    } else if (estatetype == 6) {
+                    }
+                    else if (estatetype == 6) {
                         $("#totalLand").show();
                         $("#squrefootage").show();
                         $("#yearmake").show();
@@ -229,19 +234,21 @@ $(document).ready(function () {
                         event.preventDefault();
                         event.stopPropagation();
 
-                    } else if (ownership == -1) {
+                    } /*else if (ownership == -1) {
 
                         toastr.error('Please select a Ownership');
                         event.preventDefault();
                         event.stopPropagation();
 
-                    } else if (postion == -1) {
+                    }*/
+                    else if (postion == -1) {
 
                         toastr.error('Please select the Postion of the property');
                         event.preventDefault();
                         event.stopPropagation();
 
-                    } else {
+                    }
+                    else {
                         return true;
                     }
 
@@ -254,7 +261,8 @@ $(document).ready(function () {
                        } else {
 
                        }*/
-                } else if (currentIndex === 1) {
+                }
+                else if (currentIndex === 1) {
 
                     var totalLand = $("#LandTotalSquare_user").val();
                     var Dim1 = $("#Dim1").val();
@@ -705,7 +713,7 @@ $(document).ready(function () {
                 var Address_user_kurdish=$("#Address_user_kurdish").val();
                 var estatetype=$('#estatetype').find(':selected').val();
                 var usagetype=$('#usagetype').find(':selected').val();
-                var ownership=$('#ownership').find(':selected').val();
+              /*  var ownership=$('#ownership').find(':selected').val();*/
                 var postion=$('#postion').find(':selected').val();
 
 
@@ -729,6 +737,7 @@ $(document).ready(function () {
 
                 var Posselected=  $("#Posselected").val();
                 var TextEstate=  $("#exampleFormControlTextarea1").val();
+                var exampleFormControlTextarea1Kurdish=  $("#exampleFormControlTextarea1Kurdish").val();
 
 
 
@@ -779,7 +788,7 @@ $(document).ready(function () {
                 formdata.append('Address_user_kurdish',Address_user_kurdish);
                 formdata.append('estatetype',estatetype);
                 formdata.append('usagetype',usagetype);
-                formdata.append('ownership',ownership);
+               /* formdata.append('ownership',ownership);*/
                 formdata.append('postion',postion);
                 formdata.append('totalLand',totalLand);
                 formdata.append('squrefootage',squrefootage);
@@ -791,6 +800,7 @@ $(document).ready(function () {
                 formdata.append('Dim2',Dimtwo);
                 formdata.append('totlaunitprefloor',totlaunitprefloor);
                 formdata.append('TextEstate',TextEstate);
+                formdata.append('exampleFormControlTextarea1Kurdish',exampleFormControlTextarea1Kurdish);
                 formdata.append('Address_user',Address_user);
                 formdata.append('elevator',$("#elevatorStatusInput").val());
                 formdata.append('parking',$("#parkingStatusInput").val());

@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => '  This is English Language Title.',
+    'title' => 'Title',
     'login' => 'login',
 
     'textsliderSecond' => 'Find The House of Your Dream',
@@ -20,9 +20,8 @@ return [
     'searchbtn' => 'Search',
     'LatestProperties' => 'Latest Properties ',
     'ViewAllProperties' => 'View All Properties ',
-    'loginTitlePage' => 'Koshki Zeniw ',
-    'Username' => 'Username ',
-    'Password' => 'Password ',
+    'loginTitlePage' => 'KoshkiZinwe ',
+
     'EsateCode' => 'Estate Code',
     'EsateType' => 'Estate Type',
     'rent' => 'rent',
@@ -31,7 +30,7 @@ return [
     'Bedrooms' => 'Bedrooms',
     'LandTotalSquare' => 'Land Total Square',
     'listTitle' => 'About This Listing',
-    'details' => 'Details',
+
     'region' => 'region',
     'floor' => 'floor',
     'unitfloor' => 'unitfloor',
@@ -43,6 +42,142 @@ return [
     'PriceEstate' => 'Price ',
     'PriceEstateRahan' => 'Price Estate Rent ',
     'PriceEstateRent' => 'Price Estate Rent ',
+    'h4v2' => 'Search Properties',
+    'h4p' => ' for Sale and to Rent ',
+    'BUY' => ' BUY',
+    'RENT' => ' RENT',
+    'titleSearchBox' => ' Search Property',
+    'location' => 'Location',
+    'PropertyType' => ' Property Type',
+    'Search' => 'Search',
+    'AdvancedSearch' => 'Advanced Search',
+    'Residential' => 'Residential',
+    'Commercial' => 'Commercial',
+    'Appertment' => 'Appertment',
+    'Industrial' => 'Industrial',
+    'BuildingCode' => 'Building Code',
+    'FeaturedProperty' => 'Featured Property',
+    'AllCategories' => 'All Categories',
+    'lookingfor' => 'What are you looking for?',
+    'lookingforp' => 'We provide full service at every step.',
+    'villa' => 'villa',
+    'House' => 'House',
+    'TownHouse' => 'Town House',
+    'OurAgents' => 'Our Agents',
+    'OurAgentsText' => 'Take a look at our agencies',
+    'ViewAll' => 'View All',
+    'ViewAllAgence' => 'ALL AGENCIES',
+    'AboutUs' => 'buy home, rent, invest or sell residential or commercial property',
+    'Important' => 'Important',
+    'Featured' => 'Featured',
+    'Support' => 'Support',
+    'login' => 'login',
+    'All' => 'All ',
+    'Finding' => 'Find Properties in These Cities',
+    'Sponsored' => 'Sponsored Properties',
+    'SponsoredText' => 'Sponsored Properties',
+    'pouplar' => 'Most Popular Places',
+    'pouplarText' => 'Find top cities in Iraq to buy home, rent, invest or sell residential or commercial property. Choose best residential or commercial location online in Iraq',
+
+    'abouttext' => 'Koshki  is a leading real estate and property app in Iraq/Kurdistan region which is one stop place to buy/sell and rent properties on your smart phone!
+
+Once you download Koshki  app you will be able to participate in buying/selling and renting all available projects in the country.
+
+On Koshki  your properties will be professionally advertised on Koshki  application and social media platforms.
+
+On Koshki  easily you will be able to search and find any property you wish for! as all properties is been registered by geographical location with images and price and every little details of the property .
+
+You don’t have to travel to find your dream property as Koshki  will bring to your smart device.
+
+At Koshki  our mission is to bridge the gap between the real estate agent and costumer and make it easy for smooth professional transduction.
+
+We have over a decade experience in IT and mobile application sector. we are currently active in USA, Europe, Middle east, Turkey, Asian countries. therefore, we have decided to create Koshki  as a gift for Iraq/Kurdistan people , which we make property transduction easily available to you where ever you are in the country .
+
+With Koshki  your vision is wider .
+
+Koshki  is always with you .',
+
+    'Details' => 'Details',
+    'PropertyList' => 'Property List ',
+    'Property' => 'Property',
+    'AllType' => 'All Type ',
+    'Filter' => ' Filter ',
+    'SponsoredM' => ' Feature ',
+    'Ft' => ' Ft ',
+    'Overview' => ' Overview ',
+    'PropertyID' => ' Property ID ',
+    'PostedOn' => ' Posted On ',
+    'Purpose' => ' Purpose ',
+    'Bedroom' => ' v ',
+    'Type' => ' Type  ',
+    'Price' => ' Price   ',
+    'Area ' => ' Area   ',
+    'Bathroom ' => ' Bathroom   ',
+    'Erbil' => 'Erbil',
+    'Sulaymaniyah' => 'Sulaymaniyah',
+    'Baghdad' => 'Baghdad',
+    'Karbala' => 'Karbala',
+    'Kirkuk' => 'Kirkuk',
+    'Basrah' => 'Basrah',
+    'İstanbul' => 'İstanbul',
+    'Office'=> 'Office',
+    'copyright'=> ' Copyright © 2022 All Rights Reserved',
+    'email'=> 'Email Address',
+    'beds'=> 'bedroom',
+    'Password'=> 'Password',
+    'remember'=>'remember',
+    'namecompany'=>'Asuda Real Estate',
+    'Agencies'=>'Agencies',
+
+
+    // admin panel language
+
+    'Website' => ' Website ',
+    'admin' => ' AdminPanel ',
+    'Estate' => ' Estate ',
+    'NewEstate' => ' New ',
+    'ViewEstate' => ' View ',
+    'ListEstate' => ' List ',
+    'PropertyEstate' => 'Property Estate ',
+    'TypeEstate' => 'Residential',
+    'RegionEstate' => 'Region ',
+    'Amenities' => 'Amenities ',
+    'Commercial' => 'Commercial ',
+    'logout' => 'Logout',
+    'BasicInformation' => ' Basic Information ',
+    'BasicInformationEsate' => '  Basic Information Esate ',
+    'Region' => 'Region ',
+    'Address' => 'Address ',
+    'AddressKurdish' => 'Address Kurdish ', //زانیاری
+    'Postion' => 'Postion ',
+    'DetailsEstateInformation' => 'Details Estate Information ',
+    'TotalArea' => ' TotalArea ',
+    'Ownerinformation' => 'Owner information ',
+    'PropertyImages' => 'Property Images ',
+    'Phone' => 'Phone ',
+    'Row' => 'Row ',
+    'EditEstate' => 'Edit Estate ',
+    'access' => 'access  ',
+    'YesElevator' => 'it have Elevator  ',
+    'NoElevator' => 'No Elevator',
+    'Yes' => 'Yes',
+    'No' => 'No',
+    'Yesparking' => 'It has parking',
+    'Noparking' => '  No parking',
+    'YesBalcony' => '  Yes Balcony',
+    'NoBalcony' => '  No Balcony',
+    'save' => 'save',
+    'Project' => 'Project',
+    'NewProject' => 'New Project',
+    'ViewProject' => ' View ',
+    'ListProject' => ' List ',
+    'Year' => ' Year ',
+    'Balcony' => ' Balcony ',
+    'Description' => ' Description ',
+    'DescriptionKurdish' => ' Description Kurdish ',
+    'ProjectName' => ' Project Name  ',
+    'ProjectNameen' => ' Project Name English  ',
+    'RentPrice' => ' rent Price',
 
 
 ];

@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="{{asset("panel/images/favicon.ico")}}">
 
     <meta charset="utf-8" />
-    <title>KoshKi | RealEstate</title>
+    <title>koshkizinwe | RealEstate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="" name="author" />
@@ -37,7 +37,7 @@
                             <div class="card-body p-0">
                                 <div class="text-center">
                                     <a href="{{url('/')}}" class="logo logo-admin">
-                                        <img src="{{asset("panel/images/logo/logo-sm.png")}}" height="100" alt="logo" class="auth-logo">
+                                        <img src="{{asset("Content/images/koshkiFinal.png")}}" height="100" alt="logo" class="auth-logo">
                                     </a>
                                     <h4 class="fw-semibold font-18">
                                         @lang('messages.loginTitlePage')
@@ -51,7 +51,7 @@
 
                                     <div class="form-group mb-2">
                                         <label class="form-label" for="username">
-                                            @lang('messages.Username')
+                                            @lang('messages.email')
                                         </label>
                                         <input type="email" class="form-control text-left @error('email') is-invalid @enderror"
                                                placeholder="@lang('auth.EmailPlacholder')" dir="ltr" value="{{ old('email') }}" required autofocus
@@ -82,18 +82,16 @@
                                         <div class="col-sm-6">
                                             <div class="form-check form-switch form-switch-success">
                                                 <input type="checkbox" class="form-check-input" id="customSwitchSuccess" name="remember">
-                                                <label class="form-check-label" for="customSwitchSuccess">Remember me</label>
+                                                <label class="form-check-label" for="customSwitchSuccess">@lang('messages.remember')</label>
                                             </div>
                                         </div><!--end col-->
-                                        <div class="col-sm-6 text-end">
-                                            <a href="auth-recover-pw.html" class="text-muted font-13"><i class="dripicons-lock"></i> Forgot password?</a>
-                                        </div>
+
                                     </div><!--end form-group-->
 
                                     <div class="form-group mb-0 row">
                                         <div class="col-12">
                                             <div class="d-grid mt-3">
-                                                <button class="btn btn-primary" type="submit">Log In
+                                                <button class="btn btn-primary" type="submit">@lang('messages.login')
                                                     <i class="fas fa-sign-in-alt ms-1"></i>
                                                 </button>
                                             </div>

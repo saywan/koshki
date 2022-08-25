@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="085c4ffc-8d19-4064-9d1b-26ff97cc152e" name="Koshki" url="http://server313.web-hosting.com">
+        <fileTransfer rootFolder="/public_html" host="server313.web-hosting.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

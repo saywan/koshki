@@ -2,15 +2,15 @@
 @section('styles')
 
 
-  {{--  <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/dataTables.bootstrap5.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/responsive.bootstrap5.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/buttons.bootstrap5.min.css")}}">
-    <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css")}}">--}}
+    {{--  <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/dataTables.bootstrap5.min.css")}}">
+      <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/responsive.bootstrap5.min.css")}}">
+      <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/buttons.bootstrap5.min.css")}}">
+      <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css")}}">--}}
 
 
-  <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/forms/select/select2.min.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/file-uploaders/dropzone.min.css")}}">
-  <link rel="stylesheet" type="text/css" href="{{asset("panel/css/plugins/forms/form-file-uploader.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/forms/select/select2.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("panel/vendors/css/file-uploaders/dropzone.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{asset("panel/css/plugins/forms/form-file-uploader.min.css")}}">
 
 
 
@@ -26,15 +26,15 @@
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-start mb-0">
-                                List Estate
+                               @lang('messages.ListEstate')
                             </h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">Home</a>
+                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">@lang('messages.House')</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">Estate</a>
+                                    <li class="breadcrumb-item"><a href="#">  @lang('messages.Estate')</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Edit Estate
+                                    <li class="breadcrumb-item active">@lang('messages.EditEstate')
                                     </li>
                                 </ol>
                             </div>
@@ -45,56 +45,59 @@
             </div>
             <div class="content-body">
 
-                <div class="row" id="app" >
+                <div class="row" id="app">
                     <div class="col-md-12">
 
 
                         <div class="card">
                             <div class="card-body">
                                 <h6 class="card-title">
-                                    Property information
+                                    @lang('messages.PropertyEstate')
                                 </h6>
                                 <ul class="nav nav-tabs mb-3" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
-                                            Basic property information
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                           role="tab" aria-controls="home" aria-selected="true">
+                                            @lang('messages.BasicInformation')
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
-                                            Property Facilities
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                           role="tab" aria-controls="profile" aria-selected="false">
+                                            @lang('messages.Amenities')
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#posiibiliesVIP" role="tab" aria-controls="profile" aria-selected="false">
-                                            Special property features
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#posiibiliesVIP"
+                                           role="tab" aria-controls="profile" aria-selected="false">
+                                            @lang('messages.Ownerinformation')
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="image-tab" data-toggle="tab" href="#image" role="tab" aria-controls="image" aria-selected="false">
-                                            Property pictures
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#DeleteVPN" role="tab" aria-controls="profile" aria-selected="false">
-                                            special operation
+                                        <a class="nav-link" id="image-tab" data-toggle="tab" href="#image" role="tab"
+                                           aria-controls="image" aria-selected="false">
+                                            @lang('messages.PropertyImages')
                                         </a>
                                     </li>
 
+
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                         aria-labelledby="home-tab">
 
                                         <div class="row">
                                             <div class="form-group col-md-3">
                                                 <label for="inputEmail4">
-                                                    Region
+                                                    @lang('messages.Region')
                                                 </label>
-                                                <select  id="regionselect" class="select2" >
+                                                <select id="regionselect" class="select2">
                                                     <option disabled>Choose</option>
                                                     @foreach($region as $itemregion)
-                                                        <option @if( $itemregion->id == $estateinfo->RegionId ) selected="selected" @endif value="{{$itemregion->id}}">
-                                                            {{ $itemregion->Name }}
+                                                        <option
+                                                            @if( $itemregion->id == $estateinfo->RegionId ) selected="selected"
+                                                            @endif value="{{$itemregion->id}}">
+                                                            {{$itemregion->Name}}  |     {{$itemregion->kurdishname}}
                                                         </option>
                                                     @endforeach
 
@@ -103,13 +106,15 @@
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="inputEmail4">
-                                                    Property Type
+                                                    @lang('messages.PropertyType')
                                                 </label>
-                                                <select  id="estatetype" class="select2" >
+                                                <select id="estatetype" class="select2">
                                                     <option disabled>choose</option>
                                                     @foreach($estatetype as $itemestatetype)
-                                                        <option @if( $itemestatetype->id == $estateinfo->EstateTypeId ) selected="selected" @endif value="{{$itemestatetype->id}}">
-                                                            {{ $itemestatetype->Name }}
+                                                        <option
+                                                            @if( $itemestatetype->id == $estateinfo->EstateTypeId ) selected="selected"
+                                                            @endif value="{{$itemestatetype->id}}">
+                                                            {{$itemestatetype->Name}}  |     {{$itemestatetype->kurdishname}}
                                                         </option>
                                                     @endforeach
 
@@ -118,13 +123,15 @@
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="inputEmail4">
-                                                    Location
+                                                    @lang('messages.Postion')
 
                                                 </label>
-                                                <select  id="position_type" class="select2" >
+                                                <select id="position_type" class="select2">
                                                     <option disabled>choose</option>
                                                     @foreach($position as $itemePosition)
-                                                        <option @if( $itemePosition->id == $estateinfo->position_adv ) selected="selected" @endif value="{{$itemePosition->id}}">
+                                                        <option
+                                                            @if( $itemePosition->id == $estateinfo->position_adv ) selected="selected"
+                                                            @endif value="{{$itemePosition->id}}">
                                                             {{ $itemePosition->Name }}
                                                         </option>
                                                     @endforeach
@@ -135,13 +142,15 @@
                                             <div class="form-group col-md-3">
                                                 <label for="inputEmail4">
 
-                                                 Usage Type
+                                                    @lang('messages.Commercial')
                                                 </label>
-                                                <select  id="usagetype" class="select2" >
+                                                <select id="usagetype" class="select2">
                                                     <option disabled>choose</option>
                                                     @foreach($usagetype as $itemeUsage)
-                                                        <option @if( $itemeUsage->id == $estateinfo->UsageTypeId ) selected="selected" @endif value="{{$itemeUsage->id}}">
-                                                            {{ $itemeUsage->Name }}
+                                                        <option
+                                                            @if( $itemeUsage->id == $estateinfo->UsageTypeId ) selected="selected"
+                                                            @endif value="{{$itemeUsage->id}}">
+                                                            {{$itemeUsage->name}}  |     {{$itemeUsage->kurdishname}}
                                                         </option>
                                                     @endforeach
 
@@ -151,12 +160,14 @@
                                             <div class="form-group col-md-3">
                                                 <label for="inputEmail4">
 
-                                                  Onwership Tyoe
+                                                    Onwership Tyoe
                                                 </label>
-                                                <select  id="ownership" class="select2" >
+                                                <select id="ownership" class="select2">
                                                     <option disabled>choose</option>
                                                     @foreach($ownership as $itemeOwnership)
-                                                        <option @if( $itemeOwnership->id == $estateinfo->OwenershipTypeId ) selected="selected" @endif value="{{$itemeOwnership->id}}">
+                                                        <option
+                                                            @if( $itemeOwnership->id == $estateinfo->OwenershipTypeId ) selected="selected"
+                                                            @endif value="{{$itemeOwnership->id}}">
                                                             {{ $itemeOwnership->Name }}
                                                         </option>
                                                     @endforeach
@@ -166,88 +177,124 @@
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="LandTotalSquare">
-                                                    Total land area (square meters)
+                                                    @lang('messages.Area')
                                                 </label>
 
-                                                <input type="text" class="form-control text-left" data-value="LandTotalSquare" id="LandTotalSquare"   value="{{$estateinfo->LandTotalSquare}}"  dir="rtl" name="LandTotalSquare">
+                                                <input type="text" class="form-control text-left"
+                                                       data-value="LandTotalSquare" id="LandTotalSquare"
+                                                       value="{{$estateinfo->LandTotalSquare}}" dir="rtl"
+                                                       name="LandTotalSquare">
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="SquareFootage">
-                                                    Infrastructure area (square meters)
+                                                    @lang('messages.Area')
                                                 </label>
-                                                <input type="text" class="form-control text-left" data-value="SquareFootage"  id="SquareFootage"  value="{{$estateinfo->SquareFootage}}" aria-describedby="validationTooltipUsernamePrepend" dir="rtl" required>
+                                                <input type="text" class="form-control text-left"
+                                                       data-value="SquareFootage" id="SquareFootage"
+                                                       value="{{$estateinfo->SquareFootage}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="rtl"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="validationTooltipSquare">
-                                                    Number of rooms
+                                                    @lang('messages.beds')
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="RoomNumber" id="RoomNumber" value="{{$estateinfo->RoomNumber}}" placeholder="Number of rooms" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left"
+                                                       data-value="RoomNumber" id="RoomNumber"
+                                                       value="{{$estateinfo->RoomNumber}}" placeholder="Number of rooms"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="floor">
                                                     Total number of floors
+
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="floor"  id="floor" value="{{$estateinfo->totalfloor}}"  aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required name="floor">
+                                                <input type="text" class="form-control text-left" data-value="floor"
+                                                       id="floor" value="{{$estateinfo->totalfloor}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required name="floor">
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="unit">
                                                     The desired floor
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="unit"  id="unit" value="{{$estateinfo->floor}}"  aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required name="unit">
+                                                <input type="text" class="form-control text-left" data-value="unit"
+                                                       id="unit" value="{{$estateinfo->floor}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required name="unit">
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="unitfloor">
                                                     Number of units per floor
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="unitfloor"  id="unitfloor" name="unitfloor" value="{{$estateinfo->totlaunitprefloor}}"  aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left" data-value="unitfloor"
+                                                       id="unitfloor" name="unitfloor"
+                                                       value="{{$estateinfo->totlaunitprefloor}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="unitnumber">
                                                     Single number on the floor
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="unitnumber"  id="unitnumber" value="{{$estateinfo->unitnumber}}"  aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left"
+                                                       data-value="unitnumber" id="unitnumber"
+                                                       value="{{$estateinfo->unitnumber}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="yearmade">
                                                     Year of construction of the property
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="yearmade" id="yearmade" value="{{$estateinfo->yearmade}}" aria-describedby="validationTooltipUsernamePrepend" id="yearmade" dir="ltr" required>
+                                                <input type="text" class="form-control text-left" data-value="yearmade"
+                                                       id="yearmade" value="{{$estateinfo->yearmade}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" id="yearmade"
+                                                       dir="ltr" required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="fullname">
-                                                   Onwer Estate
+                                                    @lang('messages.Ownerinformation')
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="fullname" id="fullname" name="fullname" value="{{$estateinfo->fullname}}" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left" data-value="fullname"
+                                                       id="fullname" name="fullname" value="{{$estateinfo->fullname}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="MobileNumber">
-                                                    Mobile number
+                                                    @lang('messages.Phone')
                                                 </label>
-                                                <input type="text" class="form-control text-left"  data-value="MobileNumber" id="MobileNumber" name="MobileNumber" value="{{$estateinfo->MobileNumber}}" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left"
+                                                       data-value="MobileNumber" id="MobileNumber" name="MobileNumber"
+                                                       value="{{$estateinfo->MobileNumber}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="inputEmail4">
-                                                    Type of Advertising
+                                                    @lang('messages.Purpose')
                                                 </label>
-                                                <select  id="typeAdv" class="form-control" >
+                                                <select id="typeAdv" class="form-control">
                                                     <option disabled>choose</option>
                                                     @if($estateinfo->advType =='rent')
-                                                        <option value="sale" >sale</option>
-                                                        <option value="rent" selected>rent</option>
+                                                        <option value="sale">  @lang('messages.sale')</option>
+                                                        <option value="rent" selected>  @lang('messages.RENT')</option>
 
                                                     @elseif($estateinfo->advType =='sale')
-                                                        <option value="sale" selected >sale</option>
-                                                        <option value="rent" >rent</option>
+                                                        <option value="sale" selected>@lang('messages.sale')</option>
+                                                        <option value="rent">  @lang('messages.RENT')</option>
 
 
 
@@ -262,23 +309,35 @@
 
                                             <div class="form-group col-md-3">
                                                 <label for="price">
-                                                    selling price
+                                                    @lang('messages.Price')
                                                 </label>
-                                                <input type="text" class="form-control text-left currency" data-value="price"    id="price" name="price" value="{{$estateinfo->price}}" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left currency"
+                                                       data-value="price" id="price" name="price"
+                                                       value="{{$estateinfo->price}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="price_rahan">
-                                                    Mortgage amount
+                                                    @lang('messages.Area')
                                                 </label>
-                                                <input type="text" class="form-control text-left currency3"  data-value="price_rahan" value="{{$estateinfo->price_rahan}}" id="price_rahan" name="price_rahan" placeholder="مبلغ رهن" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left currency3"
+                                                       data-value="price_rahan" value="{{$estateinfo->price_rahan}}"
+                                                       id="price_rahan" name="price_rahan" placeholder=" "
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="RentAmount">
-                                                    Rent
+                                                    @lang('messages.RENT')
                                                 </label>
-                                                <input type="text" class="form-control text-left currency4"  data-value="RentAmount" value="{{$estateinfo->RentAmount}}"  id="RentAmount" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left currency4"
+                                                       data-value="RentAmount" value="{{$estateinfo->RentAmount}}"
+                                                       id="RentAmount"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
@@ -287,15 +346,15 @@
                                                     Does the property in question have a loan?
                                                 </label>
 
-                                                <select  id="loan" class="select2" >
+                                                <select id="loan" class="select2">
 
                                                     <option disabled>choose</option>
                                                     @if($estateinfo->loan == 1)
                                                         <option value="1" selected>Yes</option>
-                                                        <option value="0"  >No</option>
+                                                        <option value="0">No</option>
                                                     @elseif($estateinfo->loan == 0)
                                                         <option value="1">Yes</option>
-                                                        <option value="0" selected >No</option>
+                                                        <option value="0" selected>No</option>
                                                     @endif
 
                                                 </select>
@@ -305,37 +364,58 @@
                                                 <label for="loanAmount">
                                                     Loan amount
                                                 </label>
-                                                <input type="text" class="form-control text-left currency2"   data-value="loanAmount" id="loanAmount" value="{{$estateinfo->loanAmount}}" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required>
+                                                <input type="text" class="form-control text-left currency2"
+                                                       data-value="loanAmount" id="loanAmount"
+                                                       value="{{$estateinfo->loanAmount}}"
+                                                       aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                       required>
 
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label for="ComplimentalDescription">
-                                                    Property Description
+                                                    @lang('messages.Details')
                                                 </label>
 
-                                                <textarea class="form-control"  id="exampleFormControlTextarea1" rows="3" required data-value="textNote" name="textNote" id="textNote">
-                                  {{strip_tags($estateinfo->ComplimentalDescription)}}
-                            </textarea>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                                          required data-value="textNote" name="textNote"
+                                                          id="textNote">{{strip_tags($estateinfo->ComplimentalDescription)}}</textarea>
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="Address">
-                                                Property address
+                                                @lang('messages.Address')
                                             </label>
-                                            <input type="text" class="form-control text-left" data-value="Address" id="Address" value="{{$estateinfo->Address}}" aria-describedby="validationTooltipUsernamePrepend" dir="ltr" required name="Address">
+                                            <input type="text" class="form-control text-left" data-value="Address"
+                                                   id="Address" value="{{$estateinfo->Address}}"
+                                                   aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                   required name="Address">
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="Address">
+                                                @lang('messages.AddressKurdish')
+                                            </label>
+                                            <input type="text" class="form-control text-left" data-value="address_ku"
+                                                   id="address_ku" value="{{$estateinfo->address_ku}}"
+                                                   aria-describedby="validationTooltipUsernamePrepend" dir="ltr"
+                                                   required name="address_ku">
                                         </div>
                                         <br>
 
-                                        <button v-on:click="EditEstate({{$estateinfo->id}},'admin')" type="button" class="btn btn-primary">
-                                        Edit
+                                        <button v-on:click="EditProject({{$estateinfo->id}},'admin')" type="button"
+                                                class="btn btn-primary">
+                                            @lang('messages.save')
                                         </button>
 
                                     </div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <button type="button" class="btn btn-outline-warning btn-pulse"  data-toggle="modal" data-target="#exampleModal" data-whatever="Register other peripherals ">
+                                    <div class="tab-pane fade" id="profile" role="tabpanel"
+                                         aria-labelledby="profile-tab">
+                                        <button type="button" class="btn btn-outline-warning btn-pulse"
+                                                data-toggle="modal" data-target="#exampleModal"
+                                                data-whatever="Register other peripherals ">
                                             <i class="ti-plus"></i>
-                                            Register other peripherals
+                                            @lang('messages.Amenities')
                                         </button>
                                         <div class="row ">
 
@@ -379,10 +459,10 @@
                                                                 <tr>
                                                                     <th scope="col">#</th>
                                                                     <th scope="col">
-                                                                        Feature title
+                                                                        @lang('messages.title')
                                                                     </th>
                                                                     <th scope="col">
-                                                                        access
+                                                                        @lang('messages.access')
                                                                     </th>
                                                                 </tr>
                                                                 </thead>
@@ -402,7 +482,16 @@
                                                                             </th>
 
                                                                             <td>
-                                                                                <button @click="DeletePossibilitiesEstate({{$itemimage->id}},'admin')" type="button" class="btn btn-info btn-floating" data-container="body" data-toggle="tooltip" data-original-title="Delete"  data-placement="top"  data-original-title="" title="" aria-describedby="popover116211">
+                                                                                <button
+                                                                                    @click="DeletePossibilitiesEstate({{$itemimage->id}},'admin')"
+                                                                                    type="button"
+                                                                                    class="btn btn-info btn-floating"
+                                                                                    data-container="body"
+                                                                                    data-toggle="tooltip"
+                                                                                    data-original-title="Delete"
+                                                                                    data-placement="top"
+                                                                                    data-original-title="" title=""
+                                                                                    aria-describedby="popover116211">
                                                                                     <i data-feather='trash'></i>
                                                                                 </button>
                                                                             </td>
@@ -422,14 +511,16 @@
 
                                             </div>
 
-                                            <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1"
+                                                 role="dialog" aria-hidden="true">
                                                 <div class="modal-dialog modal-xl" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">
-                                                                Register new Features
+                                                                @lang('messages.Amenities')
                                                             </h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="بستن">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="بستن">
                                                                 <i class="ti-close"></i>
                                                             </button>
                                                         </div>
@@ -440,7 +531,7 @@
                                                                     <div class="featuresw">
 
                                                                         <p class="uppercase m-2 fw-500">
-                                                                            Property facilities
+                                                                            @lang('messages.Amenities')
                                                                         </p>
 
 
@@ -474,24 +565,25 @@
 
                                                                                 @endforeach
                                                                             </ul>
-                                                                            <input type="hidden" name="Posselected" id="Posselected" >
+                                                                            <input type="hidden" name="Posselected"
+                                                                                   id="Posselected">
                                                                         </div>
 
                                                                     </div>
                                                                 </div>
 
 
-
-
-
-
                                                             </form>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button v-on:click="AddPossibilitiesToEstate({{$estateinfoId}},'Admin')" type="submit" class="btn btn-primary">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close
+                                                            </button>
+                                                            <button
+                                                                v-on:click="AddPossibilitiesToEstate({{$estateinfoId}},'Admin')"
+                                                                type="submit" class="btn btn-primary">
 
-                                                              Save
+                                                                Save
                                                             </button>
                                                         </div>
                                                     </div>
@@ -500,24 +592,29 @@
 
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="posiibiliesVIP" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="tab-pane fade" id="posiibiliesVIP" role="tabpanel"
+                                         aria-labelledby="contact-tab">
                                         <div class="row ">
                                             <div class="col-md-3 m-t-b-20">
                                                 <div class="dropdown">
 
-                                                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <button class="btn btn-success dropdown-toggle" type="button"
+                                                            data-toggle="dropdown">
                                                         @if( $estateinfo->elevator ==1)
-                                                            It has an elevator
+
+                                                            @lang('messages.YesElevator')
 
                                                         @else
 
-                                                            No elevator
+                                                            @lang('messages.NoElevator')
 
                                                         @endif
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" @click="ChangeElevator('admin',{{$estateinfo->id}},1)" >Yes</a>
-                                                        <a class="dropdown-item" @click="ChangeElevator('admin',{{$estateinfo->id}},0)" >No </a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeElevator('admin',{{$estateinfo->id}},1)">@lang('messages.Yes')</a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeElevator('admin',{{$estateinfo->id}},0)">@lang('messages.No') </a>
 
                                                     </div>
                                                 </div>
@@ -525,17 +622,20 @@
 
                                             <div class="col-md-3 m-t-b-20">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <button class="btn btn-success dropdown-toggle" type="button"
+                                                            data-toggle="dropdown">
                                                         @if( $estateinfo->parking ==1)
-                                                            It has parking
-                                                        @else
 
-                                                            No parking
+                                                            @lang('messages.Yesparking')
+                                                        @else
+                                                            @lang('messages.Noparking')
                                                         @endif
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item"  @click="ChangeParking('admin',{{$estateinfo->id}},1)">Yes</a>
-                                                        <a class="dropdown-item"  @click="ChangeParking('admin',{{$estateinfo->id}},0)">No </a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeParking('admin',{{$estateinfo->id}},1)"> @lang('messages.Yes')</a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeParking('admin',{{$estateinfo->id}},0)"> @lang('messages.No') </a>
 
                                                     </div>
                                                 </div>
@@ -543,7 +643,8 @@
 
                                             <div class="col-md-3 m-t-b-20">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <button class="btn btn-success dropdown-toggle" type="button"
+                                                            data-toggle="dropdown">
                                                         @if( $estateinfo->warehouse ==1)
 
                                                             It has a warehouse
@@ -554,8 +655,10 @@
                                                         @endif
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item" @click="ChangeWarehouse('admin',{{$estateinfo->id}},1)">Yes</a>
-                                                        <a class="dropdown-item" @click="ChangeWarehouse('admin',{{$estateinfo->id}},0)">No </a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeWarehouse('admin',{{$estateinfo->id}},1)">Yes</a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeWarehouse('admin',{{$estateinfo->id}},0)">No </a>
 
                                                     </div>
                                                 </div>
@@ -564,21 +667,19 @@
 
                                             <div class="col-md-3 m-t-b-20">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <button class="btn btn-success dropdown-toggle" type="button"
+                                                            data-toggle="dropdown">
                                                         @if( $estateinfo->Balcony ==1)
-
-                                                            It has a balcony
-
+                                                           @lang('messages.YesBalcony')
                                                         @else
-
-
-                                                            It does not have a balcony
-
+                                                            @lang('messages.NoBalcony')
                                                         @endif
                                                     </button>
                                                     <div class="dropdown-menu">
-                                                        <a class="dropdown-item"  @click="ChangeBalcony('admin',{{$estateinfo->id}},1)">Yes</a>
-                                                        <a class="dropdown-item" @click="ChangeBalcony('admin',{{$estateinfo->id}},0)">No </a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeBalcony('admin',{{$estateinfo->id}},1)"> @lang('messages.Yes')</a>
+                                                        <a class="dropdown-item"
+                                                           @click="ChangeBalcony('admin',{{$estateinfo->id}},0)"> @lang('messages.No') </a>
 
                                                     </div>
                                                 </div>
@@ -597,9 +698,9 @@
                                                                 <thead>
                                                                 <tr>
                                                                     <th scope="col">#</th>
-                                                                    <th scope="col">Image</th>
+                                                                    <th scope="col"> @lang('messages.PropertyImages')</th>
                                                                     <th scope="col">download link</th>
-                                                                    <th scope="col">access</th>
+                                                                    <th scope="col">@lang('messages.access')</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -614,7 +715,10 @@
                                                                             <th scope="row">{{$i++}}</th>
                                                                             <th>
                                                                                 <figure class="avatar avatar-xl ">
-                                                                                    <img src="{{asset($itemimage->photo)}}" class="rounded-circle" alt="image">
+                                                                                    <img
+                                                                                        src="{{asset($itemimage->photo)}}"
+                                                                                        class="rounded-circle"
+                                                                                        alt="image">
                                                                                 </figure>
                                                                             </th>
                                                                             <td>
@@ -629,7 +733,16 @@
 
                                                                             </td>
                                                                             <td>
-                                                                                <button v-on:click="DeleteImageEstate({{$itemimage->id}})" type="button" class="btn btn-info btn-floating" data-container="body" data-toggle="tooltip" data-original-title="حذف"  data-placement="top"  data-original-title="" title="" aria-describedby="popover116211">
+                                                                                <button
+                                                                                    v-on:click="DeleteImageEstate({{$itemimage->id}})"
+                                                                                    type="button"
+                                                                                    class="btn btn-info btn-floating"
+                                                                                    data-container="body"
+                                                                                    data-toggle="tooltip"
+                                                                                    data-original-title="حذف"
+                                                                                    data-placement="top"
+                                                                                    data-original-title="" title=""
+                                                                                    aria-describedby="popover116211">
                                                                                     <i data-feather='trash'></i>
                                                                                 </button>
                                                                             </td>
@@ -653,22 +766,20 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h6 class="card-title">
-                                                            Upload property image
+                                                            @lang('messages.PropertyImages')
                                                         </h6>
 
-                                                       {{-- <form action="/admin/uploadImage"  class="dropzone dropzone-area" id="dpz-multiple-files" enctype="multipart/form-data" id="image-upload" method="post">
-                                                            {{ csrf_field() }}
-                                                            <div class="dz-message" id="multipleFileUpload">
-                                                                <span>فایل را اینجا رها کنید تا آپلود شود</span>
-                                                            </div>
-                                                            <input type="hidden" value="{{$estateinfoId}}" name="imageId">
+                                                        {{-- <form action="/admin/uploadImage"  class="dropzone dropzone-area" id="dpz-multiple-files" enctype="multipart/form-data" id="image-upload" method="post">
+                                                             {{ csrf_field() }}
+                                                             <div class="dz-message" id="multipleFileUpload">
+                                                                 <span>فایل را اینجا رها کنید تا آپلود شود</span>
+                                                             </div>
+                                                             <input type="hidden" value="{{$estateinfoId}}" name="imageId">
 
-                                                            <a id="submit" role="button" class="btn btn-primary" style="width: 100%">Upload</a>
+                                                             <a id="submit" role="button" class="btn btn-primary" style="width: 100%">Upload</a>
 
-                                                          --}}{{--  <button id="uploadFile" class="btn btn-secondary">Upload Files</button>--}}{{--
-                                                        </form>--}}
-
-
+                                                           --}}{{--  <button id="uploadFile" class="btn btn-secondary">Upload Files</button>--}}{{--
+                                                         </form>--}}
 
 
                                                         <div class="card">
@@ -676,149 +787,145 @@
                                                             <div class="card-body">
                                                                 <div class="dropzone" id="multipleFileUpload"></div>
                                                                 <hr>
-                                                                <a id="submit" role="button" class="btn btn-primary" style="width: 100%">Upload</a>
+                                                                <a id="submit" role="button" class="btn btn-primary"
+                                                                   style="width: 100%">@lang('messages.save')</a>
                                                             </div>
 
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="DeleteVPN" role="tabpanel" aria-labelledby="contact-tab">
-                                        <div class="row ">
-                                            <div class="col-md-3 m-t-b-20">
-                                                <button class="btn btn-danger" type="button"
-                                                        v-on:click="RemoveEstate('admin',{{$estateinfo->id}})" >
-                                                    <i data-feather='trash'></i>
-                                                </button>
-                                            </div>
+                                        <div class="tab-pane fade" id="DeleteVPN" role="tabpanel"
+                                             aria-labelledby="contact-tab">
+                                            <div class="row ">
+                                                <div class="col-md-3 m-t-b-20">
+                                                    <button class="btn btn-danger" type="button"
+                                                            v-on:click="RemoveEstate('admin',{{$estateinfo->id}})">
+                                                        <i data-feather='trash'></i>
+                                                    </button>
+                                                </div>
 
+                                            </div>
                                         </div>
                                     </div>
+
+
                                 </div>
-
-
-
                             </div>
+
+
                         </div>
-
-
-
-
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-@endsection
-@section('scripts')
+        @endsection
+        @section('scripts')
 
 
-{{--    <script src="{{asset("panel/vendors/js/vendors.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/forms/select/select2.full.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/jquery.dataTables.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/dataTables.bootstrap5.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/dataTables.responsive.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/responsive.bootstrap5.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/datatables.buttons.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/jszip.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/pdfmake.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/vfs_fonts.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/buttons.html5.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/buttons.print.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/tables/datatable/dataTables.rowGroup.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/forms/validation/jquery.validate.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/forms/cleave/cleave.min.js")}}"></script>
-    <script src="{{asset("panel/vendors/js/forms/cleave/addons/cleave-phone.us.js")}}"></script>
-    <script src="{{asset("panel/js/scripts/pages/app-user-list.min.js")}}"></script>--}}
+            {{--    <script src="{{asset("panel/vendors/js/vendors.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/forms/select/select2.full.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/jquery.dataTables.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/dataTables.bootstrap5.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/dataTables.responsive.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/responsive.bootstrap5.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/datatables.buttons.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/jszip.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/pdfmake.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/vfs_fonts.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/buttons.html5.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/buttons.print.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/tables/datatable/dataTables.rowGroup.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/forms/validation/jquery.validate.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/forms/cleave/cleave.min.js")}}"></script>
+                <script src="{{asset("panel/vendors/js/forms/cleave/addons/cleave-phone.us.js")}}"></script>
+                <script src="{{asset("panel/js/scripts/pages/app-user-list.min.js")}}"></script>--}}
 
 
-<script src="{{asset("panel/vendors/js/forms/select/select2.full.min.js")}}"></script>
-<script src="{{asset("panel/vendors/js/file-uploaders/dropzone.min.js")}}"></script>
-<script src="{{asset("panel/js/scripts/forms/form-file-uploader.min.js")}}"></script>
+            <script src="{{asset("panel/vendors/js/forms/select/select2.full.min.js")}}"></script>
+            <script src="{{asset("panel/vendors/js/file-uploaders/dropzone.min.js")}}"></script>
+            <script src="{{asset("panel/js/scripts/forms/form-file-uploader.min.js")}}"></script>
 
-<script src="{{asset("panel/js/scripts/forms/form-select2.min.js")}}"></script>
-
-
-<script type="text/javascript">
+            <script src="{{asset("panel/js/scripts/forms/form-select2.min.js")}}"></script>
 
 
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone("#multipleFileUpload",
-        {
-            url: '{{route("admin.uploadImage")}}',
-            acceptedFiles: ".jpg,.png,.jpeg,application/pdf",
-            maxFiles: 10,
-            addRemoveLinks: true,
-            autoProcessQueue: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                'imageId':{{$estateinfoId}}
-            },
-
-            init: function () {
-                var submitButton = document.querySelector("#submit");
-
-                myDropzone = this;
-                submitButton.addEventListener("click", function() {
-
-                    myDropzone.processQueue();
-                });
-
-                this.on('complete', function(data){
+            <script type="text/javascript">
 
 
+                Dropzone.autoDiscover = false;
+                var myDropzone = new Dropzone("#multipleFileUpload",
+                    {
+                        url: '{{route("admin.uploadImage")}}',
+                        acceptedFiles: ".jpg,.png,.jpeg,application/pdf",
+                        maxFiles: 10,
+                        addRemoveLinks: true,
+                        autoProcessQueue: false,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                            'imageId':{{$estateinfoId}}
+                        },
+
+                        init: function () {
+                            var submitButton = document.querySelector("#submit");
+
+                            myDropzone = this;
+                            submitButton.addEventListener("click", function () {
+
+                                myDropzone.processQueue();
+                            });
+
+                            this.on('complete', function (data) {
 
 
-                    if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
-                        var _this = this;
-                        Swal.fire({
-                            icon: "success",
-                            title: "Upload Success",
-                            text: "Image is Upload",
-                            customClass: {confirmButton: "btn btn-success"}
-                        });
-                        _this.removeAllFiles();
+                                if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
+                                    var _this = this;
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: "Upload Success",
+                                        text: "Image is Upload",
+                                        customClass: {confirmButton: "btn btn-success"}
+                                    });
+                                    _this.removeAllFiles();
 
 
-                        setTimeout(function () {
-                            location.reload();
-                        },3000);
+                                    setTimeout(function () {
+                                        location.reload();
+                                    }, 3000);
 
-                    }
-                });
-            }
-        });
+                                }
+                            });
+                        }
+                    });
 
-</script>
+            </script>
 
-<script>
-    $(function ()
-    {
-        var arr=[];
-        var list_possibi = [];
-        var  i = 0;
-        $('.itemsdetails ul li').click(function (e) {
-            if ($(e.target).is('.active')) {
-                $(this).removeClass('active');
+            <script>
+                $(function () {
+                    var arr = [];
+                    var list_possibi = [];
+                    var i = 0;
+                    $('.itemsdetails ul li').click(function (e) {
+                        if ($(e.target).is('.active')) {
+                            $(this).removeClass('active');
 
-            } else {
-                $(this).addClass('active');
+                        } else {
+                            $(this).addClass('active');
 
-                arr[i++] = this.getAttribute('data-val');
-                if ($.inArray(this.getAttribute('data-val'), list_possibi) == -1) {
-                    list_possibi.push(this.getAttribute('data-val'));
-                    $("#Posselected").val(list_possibi.join());
+                            arr[i++] = this.getAttribute('data-val');
+                            if ($.inArray(this.getAttribute('data-val'), list_possibi) == -1) {
+                                list_possibi.push(this.getAttribute('data-val'));
+                                $("#Posselected").val(list_possibi.join());
 
-                }
+                            }
 
-            }
+                        }
 
-        });
-    })
-</script>
+                    });
+                })
+            </script>
 
 
 @endsection

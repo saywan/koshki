@@ -24,20 +24,20 @@
 
                         <div id="wizard2">
                             <h3>
-                                Basic Information
+                               @lang('messages.BasicInformation')
                             </h3>
                             <section class="card card-body border mb-0">
                                 <h5>
-                                    Basic Information Estate
+                                    @lang('messages.BasicInformationEsate')
                                 </h5>
 
                                 <form id="form1">
                                     <div class="row">
                                         <div class="form-group col-md-3">
-                                            <label>Region *</label>
+                                            <label> @lang('messages.Region') *</label>
                                             <select class="form-control" id="region">
                                                 <option value="-1">
-                                                    Please Select Region
+                                                    @lang('messages.Region')
                                                 </option>
                                                 @foreach($region as $itemregin)
                                                     <option value="{{$itemregin->id}}">
@@ -51,9 +51,10 @@
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>
-                                                Address
+                                                @lang('messages.Address')
+
                                             </label>
-                                            <input type="text" class="form-control" placeholder="Address ..."
+                                            <input type="text" class="form-control" placeholder="@lang('messages.Address')"
                                                    id="Address_user" name="Address_user"
                                                    required>
                                             <div class="valid-feedback">
@@ -62,9 +63,9 @@
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>
-                                                Address  Kurdish language
+                                                @lang('messages.AddressKurdish')
                                             </label>
-                                            <input type="text" class="form-control" placeholder="Address ..."
+                                            <input type="text" class="form-control" placeholder="@lang('messages.AddressKurdish')"
                                                    id="Address_user_kurdish" name="Address_user_kurdish"
                                                    required>
                                             <div class="valid-feedback">
@@ -73,11 +74,12 @@
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>
-                                              Estate Type
+
+                                                @lang('messages.TypeEstate')
                                             </label>
                                             <select class="form-control" id="estatetype">
                                                 <option value="-1">
-                                                    Please Select Estate Type
+                                                    @lang('messages.TypeEstate')
                                                 </option>
                                                 @foreach($estatetype as $itemestatetype)
 
@@ -88,16 +90,16 @@
                                             </select>
 
                                             <div class="valid-feedback">
-                                                صحیح است!
+
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label>
-                                              Usage Type Estate
+                                                @lang('messages.Commercial')
                                             </label>
                                             <select class="form-control" id="usagetype">
                                                 <option value="-1">
-                                                    Please Select Estate Type
+                                                    @lang('messages.Commercial')
                                                 </option>
                                                 @foreach($UsageTypes as $itemUserage)
                                                     <option value="{{$itemUserage->id}}">
@@ -110,32 +112,14 @@
                                               Correct
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-3">
-                                            <label>
-                                               OwnerShip Estate
-                                            </label>
-                                            <select class="form-control" id="ownership">
-                                                <option value="-1">
-                                                    Please Select Estate Type
-                                                </option>
-                                                @foreach($ownershiptype as $itemOwnership)
-                                                    <option value="{{$itemOwnership->id}}">
-                                                        {{$itemOwnership->Name}}  |     {{$itemOwnership->kurdishname}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
 
-                                            <div class="valid-feedback">
-                                                Correct
-                                            </div>
-                                        </div>
                                         <div class="form-group col-md-3">
                                             <label>
-                                               Position Estate
+                                                @lang('messages.Postion')
                                             </label>
                                             <select class="form-control" id="postion">
                                                 <option value="-1">
-                                                    Please Select Estate Type
+                                                    @lang('messages.Postion')
                                                 </option>
                                                 @foreach($positiontype as $itemPostion)
                                                     <option value="{{$itemPostion->id}}">
@@ -154,42 +138,42 @@
                                 </form>
                             </section>
                             <h3>
-                            Estate Information
+                                @lang('messages.BasicInformationEsate')
                             </h3>
                             <section class="card card-body border mb-0">
                                 <h5>
-                                  Details Estate Information
+                                    @lang('messages.DetailsEstateInformation')
                                 </h5>
                                 <form id="form2">
                                     <div class="row">
                                         <div class="form-group col-md-3 " id="totalLand">
                                             <div class="form-group">
                                                 <label class="text-label">
-                                                    Total area
+                                                    @lang('messages.Area')
                                                 </label>
                                                 <input type="number" name="LandTotalSquare_user"
                                                        id="LandTotalSquare_user" class="form-control"
-                                                       placeholder=" Total area" required>
+                                                       placeholder="@lang('messages.Area')" required>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3 " id="squrefootage">
                                             <div class="form-group">
                                                 <label class="text-label">
-                                                    Area under construction
+                                                    @lang('messages.Area')
                                                 </label>
                                                 <input type="number" class="form-control" name="SquareFootage_user"
                                                        id="SquareFootage_user"
-                                                       placeholder="  Area under construction">
+                                                       placeholder="@lang('messages.Area')">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3 " id="yearmake">
                                             <div class="form-group">
                                                 <label class="text-label">
-                                                    Year Made
+                                                    @lang('messages.Year')
                                                 </label>
                                                 <select class="form-control" id="yearmade">
                                                     <option value="0">
-                                                        Please Select Year
+                                                        @lang('messages.Year')
                                                     </option>
                                                     @for($i=2022;$i >1920;$i--)
 
@@ -206,10 +190,10 @@
                                         <div class="form-group col-md-3 " id="beedroomtotal">
                                             <div class="form-group">
                                                 <label class="text-label">
-                                                    Number of bedrooms *
+                                                    @lang('messages.beds')
                                                 </label>
                                                 <select class="form-control" id="bedroomnuo">
-                                                    <option value="0">    Please Select Estate Type</option>
+                                                    <option value="0">  @lang('messages.beds')</option>
                                                     @for($i=1;$i <10;$i++)
 
                                                         <option value=" {{$i}}">
@@ -263,11 +247,11 @@
                                 </form>
                             </section>
                             <h3>
-                                Facilities Estate
+                                @lang('messages.Amenities')
                             </h3>
                             <section class="card card-body border mb-0">
                                 <h5>
-                                    Facilities Estate
+                                    @lang('messages.Amenities')
                                 </h5>
                                 <form id="form3">
 
@@ -277,7 +261,7 @@
                                                 <input type="checkbox" class="custom-control-input" id="customSwitch"
                                                        v-model="elevator" value="0" name="elevator">
                                                 <label class="custom-control-label" for="customSwitch">
-                                                    Elevator : Yes
+                                                    @lang('messages.Elevator') : @lang('messages.Yes')
                                                 </label>
                                             </div>
                                             <div class="elevator_status">
@@ -290,7 +274,7 @@
                                                 <input type="checkbox" class="custom-control-input" id="customSwitch1_"
                                                        v-model="parking" value="0" name="parking">
                                                 <label class="custom-control-label" for="customSwitch1_">
-                                                    Parking : Yes
+                                                    @lang('messages.Parking') : @lang('messages.Yes')
                                                 </label>
                                             </div>
                                             <div class="parking_status">
@@ -298,25 +282,13 @@
                                                        name="parkingStatusInput"/>
                                             </div>
                                         </div>
-                                        <div class="form-group  col-md-3">
-                                            <div class="custom-control custom-switch custom-checkbox-success">
-                                                <input type="checkbox" class="custom-control-input" id="customSwitch2_"
-                                                       name="warehouse" v-model="warehouse" value="1">
-                                                <label class="custom-control-label" for="customSwitch2_">
-                                                    Warehouse : Yes
-                                                </label>
-                                            </div>
-                                            <div class="warehouse_status">
-                                                <input type="hidden" value="0" id="warehouseInputStatus"
-                                                       name="warehouseInputStatus"/>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group  col-md-3">
                                             <div class="custom-control custom-switch custom-checkbox-danger">
                                                 <input type="checkbox" class="custom-control-input" id="customSwitch3_"
                                                        v-model="blacony" name="blacony" value="1">
                                                 <label class="custom-control-label" for="customSwitch3_">
-                                                    Balcony : Yes
+                                                    @lang('messages.Balcony') : @lang('messages.Yes')
                                                 </label>
                                             </div>
                                             <div class="blacony_status">
@@ -342,9 +314,20 @@
                                     <div class="row">
                                         <div class="form-group col-md-12">
                                             <label for="exampleFormControlTextarea1">
-                                                Property Description
+                                                @lang('messages.Description')
                                             </label>
                                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+
+                                                    </textarea>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label for="exampleFormControlTextarea1Kurdish">
+                                                @lang('messages.DescriptionKurdish')
+                                            </label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1Kurdish" rows="3">
 
                                                     </textarea>
 
@@ -354,32 +337,32 @@
 
                             </section>
                             <h3>
-                                Owner information
+                                @lang('messages.Ownerinformation')
                             </h3>
                             <section class="card card-body border mb-0">
                                 <h5>
-                                    Owner information
+                                    @lang('messages.Ownerinformation')
                                 </h5>
                                 <form id="form4">
 
                                     <div class="row">
                                         <div class="form-group col-md-3">
                                             <label>
-                                                Name and surname of the property owner
+                                                @lang('messages.Ownerinformation')
                                             </label>
                                             <input type="text" name="fullname_user" class="form-control"
-                                                   placeholder="Name and surname of the property owner"
+                                                   placeholder="   @lang('messages.Ownerinformation')"
                                                    required id="fullname_user" v-model="fullname_user">
                                             <div class="valid-feedback">
                                              Correct
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3">
-                                            <label> Owner's mobile number</label>
+                                            <label> @lang('messages.Phone')</label>
                                             <input type="number" name="MobileNumber_user"
                                                    id="MobileNumber_user" v-model="MobileNumber_user"
                                                    class="form-control"
-                                                   placeholder="Owner's mobile number"
+                                                   placeholder="@lang('messages.Phone')"
                                                    required>
                                             <div class="valid-feedback">
                                                Correct
@@ -394,7 +377,7 @@
                                                            v-model="featured" value="sale">
 
                                                     <label class="custom-control-label" for="sale">
-                                                        Sale
+                                                        @lang('messages.sale')
                                                     </label>
                                                 </div>
                                             </div>
@@ -405,7 +388,7 @@
                                                            name="StatusEstateType" id="rent" value="rent">
 
                                                     <label class="custom-control-label" for="rent">
-                                                        Rent
+                                                        @lang('messages.RENT')
 
                                                     </label>
                                                 </div>
@@ -413,11 +396,11 @@
                                         </div>
                                         <div class="form-group col-md-2 PriceSale">
                                             <label>
-                                                Selling price
+                                                @lang('messages.Price')
                                             </label>
                                             <input name="price_user" v-model="price_user" id="price_user"
                                                    class="form-control currency"
-                                                   placeholder="Selling price" required>
+                                                   placeholder=" @lang('messages.Price')" required>
 
                                             <div class="valid-feedback">
 
@@ -436,9 +419,9 @@
                                             </div>
                                         </div>
                                         <div class="form-group col-md-3  rentPrice">
-                                            <label>rent price</label>
+                                            <label> @lang('messages.RentPrice')</label>
                                             <input type="text" class="form-control "
-                                                   placeholder="rent price" required
+                                                   placeholder="@lang('messages.RentPrice')" required
                                                    v-model="RentAmount_user" name="RentAmount" id="RentAmount">
                                             <div id="demo_out3"></div>
                                             <div class="valid-feedback">
@@ -482,7 +465,7 @@
 
                                         <div class="form-group col-md-2">
                                             <label>
-                                                Property condition
+                                                @lang('messages.Purpose')
                                             </label>
 
                                             <div class="form-group">
@@ -492,24 +475,12 @@
                                                            id="Salepart" value="sale">
 
                                                     <label class="custom-control-label" for="Salepart">
-                                                        Are selling
+                                                        @lang('messages.sale')
 
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-radio custom-checkbox-success">
 
-                                                    <input type="radio" class="custom-control-input"
-                                                           v-model="StatusEstate" name="StatusEstate" id="presell"
-                                                           value="presell">
-
-                                                    <label class="custom-control-label" for="presell">
-                                                        Presell
-
-                                                    </label>
-                                                </div>
-                                            </div>
 
                                             <div class="form-group">
                                                 <div class="custom-control custom-radio custom-checkbox-success">
@@ -519,24 +490,12 @@
                                                            value="rent">
 
                                                     <label class="custom-control-label" for="EstatRenttype">
-                                                        rental
+                                                        @lang('messages.RENT')
 
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-radio custom-checkbox-success">
 
-                                                    <input type="radio" class="custom-control-input"
-                                                           v-model="StatusEstate" name="StatusEstate"
-                                                           id="Estatexhangetype" value="exhange">
-
-                                                    <label class="custom-control-label" for="Estatexhangetype">
-                                                        Exchange
-
-                                                    </label>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         {{--  <div class="form-group col-md-3">
@@ -554,17 +513,17 @@
 
                             </section>
                             <h3>
-                                Uplaod Estate Image
+                               @lang('messages.PropertyImages')
 
                             </h3>
                             <section class="card card-body border mb-0">
                                 <h5>
-                                    Uplaod Estate Image
+                                    @lang('messages.PropertyImages')
                                 </h5>
                                 <form id="form5">
 
                                         <label class="text-muted">
-                                            Upload property image (maximum 8 photos)
+                                            @lang('messages.PropertyImages')
                                         </label>
 
                                         <div id="imageUploadBox">
@@ -629,12 +588,6 @@
             $('.form-select').select2({
                 placeholder: 'Ų§Ł†ŲŖŲ®Ų§ŲØ'
             });
-
-
-
-
-
-
 
 
 

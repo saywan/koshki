@@ -100,5 +100,7 @@
         window.location.href = url + "?lang="+ $(this).val();
     });
 
+
+
 </script>
 </html>

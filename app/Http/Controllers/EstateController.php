@@ -49,7 +49,6 @@ class EstateController extends Controller
         $positiontype = positiontype::all();
         $possibility = possibility::all();
 
-
         return view('admin.Estate.New', ['region' => $region, 'estatetype' => $estatetype, 'UsageTypes' => $UsageTypes, 'ownershiptype' => $ownershiptype, 'positiontype' => $positiontype, 'possibility' => $possibility]);
     }
 
@@ -201,10 +200,10 @@ class EstateController extends Controller
         $CodeEstate = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
         $EstateType = new estateinfo();
         $EstateType->userId = Auth::user()->id;
-        $EstateType->OwenershipTypeId = $request->ownership;
+      /*  $EstateType->OwenershipTypeId = $request->ownership;*/
         $EstateType->advType = $request->StatusEstateType;
         $EstateType->MobileNumber = $request->MobileNumber;
-        $EstateType->Email = $request->Email;
+      /*  $EstateType->Email = $request->Email;*/
         $EstateType->fullname = $request->fullname_user;
         $EstateType->Code = $CodeEstate;
         $EstateType->TrackingCode = $TrackCode;
@@ -220,6 +219,7 @@ class EstateController extends Controller
         $EstateType->SquareFootage = $squrefootage;
         $EstateType->RoomNumber = $beedroomtotal;
         $EstateType->ComplimentalDescription = $request->TextEstate;
+        $EstateType->ComplimentalDescriptionKu = $request->exampleFormControlTextarea1Kurdish;
         $EstateType->status = $request->StatusEstate;
         $EstateType->position_adv = $postion;
 
@@ -230,7 +230,7 @@ class EstateController extends Controller
 
         $EstateType->elevator = $request->elevator;
         $EstateType->parking = $request->parking;
-        $EstateType->warehouse = $request->warehouse;
+        $EstateType->warehouse = 1;
         $EstateType->Balcony = $request->Balcony;
         $EstateType->publish = 'active';
 

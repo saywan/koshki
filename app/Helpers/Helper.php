@@ -14,6 +14,8 @@ use App\Model\notification;
 use App\Model\OfferEstate;
 use App\Model\positiontype;
 use App\Model\possibility;
+use App\Model\Project;
+use App\Model\projectimage;
 use App\Model\region;
 use App\Model\ReplyRequest;
 use App\Model\requestestate;
@@ -25,6 +27,27 @@ use PHPUnit\Framework\Constraint\Count;
 
 class Helper
 {
+
+    public static function getAllEstate()
+    {
+
+        $estateInfo = estateinfo::get();
+        if (count($estateInfo) > 0) {
+            return \count($estateInfo);
+        } else {
+            return 0;
+        }
+    }
+    public static function getAllProject()
+    {
+
+        $estateInfo = Project::get();
+        if (count($estateInfo) > 0) {
+            return \count($estateInfo);
+        } else {
+            return 0;
+        }
+    }
 
     public static function crypto_rand_secure($min, $max)
     {
@@ -182,6 +205,115 @@ class Helper
 
     }
 
+    public static function GetImagesFirst($estateId)
+    {
+        $infoEstate = estateinfo::where('id', $estateId)->first();
+        $estateImage = estateimage::where('EstateId', $estateId)->first();
+        if ($estateImage) {
+            echo " <img class='img-fluid w100' src='/public/$estateImage->photo'    alt='fp10.jpg'>";
+
+        } else {
+            return "no";
+        }
+
+    }
+    public static function GetImagesFirstImageVersion($estateId)
+    {
+
+        $infoEstate = estateinfo::where('id', $estateId)->first();
+        $estateImage = estateimage::where('EstateId', $estateId)->first();
+        if ($estateImage) {
+            echo " <img class='img-whp' src='/public/$estateImage->photo'    alt='fp10.jpg'>";
+
+        } else {
+            return "no";
+        }
+
+    }
+    public static function GetImagesFirstImageVersionPro($estateId)
+    {
+
+        $infoEstate = Project::where('id', $estateId)->first();
+        $estateImage = projectimage::where('EstateId', $estateId)->first();
+        if ($estateImage) {
+            echo " <img class='img-whp' src='/public$estateImage->photo'    alt='fp10.jpg'>";
+
+        } else {
+            return "no";
+        }
+
+    }
+    public static function GetBigImageEstateDetails($estateId)
+    {
+
+        $infoEstate = estateinfo::where('id', $estateId)->first();
+        $estateImage = estateimage::where('EstateId', $estateId)->first();
+        if ($estateImage) {
+            echo "<a class='popup-img' href='$estateImage->photo'>
+                          <img class='img-fluid w100'  src='/public$estateImage->photo'  alt='1.jpg'>
+                   </a>";
+
+        } else {
+            return "";
+        }
+
+    }
+
+    public static function GetBigImageProjectDetails($estateId)
+    {
+        $infoEstate = Project::where('id', $estateId)->first();
+        $estateImage = projectimage::where('EstateId', $estateId)->first();
+        if ($estateImage) {
+            echo "<a class='popup-img' href='$estateImage->photo'>
+                          <img class='img-fluid w100'  src='/public$estateImage->photo'  alt='1.jpg'>
+                   </a>";
+
+        } else {
+            return "";
+        }
+
+    }
+    public static function GetAllDetailImage($estateId)
+    {
+
+        $infoEstate = estateinfo::where('id', $estateId)->first();
+        $estateImage = estateimage::where('EstateId', $estateId)->get();
+        if (count($estateImage) > 0) {
+            foreach ($estateImage as $itemImage) {
+                echo "<div class='col-sm-6 col-lg-6'>
+                            <div class='spls_style_two mb30'>
+                                <a class='popup-img' href='$itemImage->photo'>
+                                <img class='img-fluid w100'  src='/public/$itemImage->photo'      alt='$infoEstate->address_ku'></a>
+                            </div>
+                        </div>";
+            }
+        }
+        else {
+            return "no";
+        }
+
+    }
+    public static function GetAllDetailImagePro($estateId)
+    {
+        $infoEstate = Project::where('id', $estateId)->first();
+        $estateImage = projectimage::where('EstateId', $estateId)->get();
+        if (count($estateImage) > 0) {
+            foreach ($estateImage as $itemImage) {
+                echo "<div class='col-sm-6 col-lg-6'>
+                            <div class='spls_style_two mb30'>
+                                <a class='popup-img' href='$itemImage->photo'>
+                                <img class='img-fluid w100'  src='/public$itemImage->photo'      alt='$infoEstate->address_ku'></a>
+                            </div>
+                        </div>";
+            }
+
+        }
+        else {
+            return "no";
+        }
+
+    }
+
     public static function GetImageEstateSlider($estateId)
     {
 
@@ -216,7 +348,9 @@ class Helper
     public static function GetPossibitiesEstate($posId)
     {
 
-        $possibility = possibility::where('id', $posId)->get();
+
+
+        $possibility = estateinfopossibility::where('EstateId', $posId)->get();
         if (count($possibility) > 0) {
             foreach ($possibility as $possibilitylist) {
 
@@ -228,6 +362,23 @@ class Helper
                                                     </label>
                                                 </div>
                                             </div>";
+
+            }
+
+        } else {
+            return "no";
+        }
+
+    }
+    public static function GetPossibitiesDetailEstate($posId)
+    {
+
+        $possibility = estateinfopossibility::where('EstateId', $posId)->get();
+        if (count($possibility) > 0) {
+            foreach ($possibility as $possibilitylist) {
+
+               $name= self::GetNamePoossibities($possibilitylist->id);
+                echo "<li><a href=''><span class=''></span>$name</a></li>";
 
             }
 
@@ -376,12 +527,9 @@ class Helper
     public static function GetInfoEstateType($type)
     {
         $infoRegion = estatetype::where('id', $type)->first();
-        if (session()->get('locale') == 'en')
-        {
+        if (session()->get('locale') == 'en') {
             return $infoRegion->Name;
-        }
-        elseif (session()->get('locale') == 'ku')
-        {
+        } elseif (session()->get('locale') == 'ku') {
             return $infoRegion->kurdishname;
         }
     }
@@ -389,15 +537,11 @@ class Helper
     public static function EstateType($estateId)
     {
         $estatype = estatetype::where('id', $estateId)->first();
-        if (session()->get('locale') == 'en')
-        {
+        if (session()->get('locale') == 'en') {
             return $estatype->Name;
-        }
-        elseif (session()->get('locale') == 'ku')
-        {
+        } elseif (session()->get('locale') == 'ku') {
             return $estatype->kurdishname;
         }
-
 
 
     }
@@ -405,12 +549,9 @@ class Helper
     public static function EstateTypeAdv($estateId)
     {
         $estatype = estatetype::where('id', $estateId)->first();
-        if (session()->get('locale') == 'en')
-        {
+        if (session()->get('locale') == 'en') {
             return $estatype->Name;
-        }
-        elseif (session()->get('locale') == 'ku')
-        {
+        } elseif (session()->get('locale') == 'ku') {
             return $estatype->kurdishname;
         }
     }
@@ -418,12 +559,9 @@ class Helper
     public static function EstateTypeUsage($estateId)
     {
         $estatype = UsageTypes::where('id', $estateId)->first();
-        if (session()->get('locale') == 'en')
-        {
+        if (session()->get('locale') == 'en') {
             return $estatype->Name;
-        }
-        elseif (session()->get('locale') == 'ku')
-        {
+        } elseif (session()->get('locale') == 'ku') {
             return $estatype->kurdishname;
         }
     }
@@ -431,12 +569,10 @@ class Helper
     public static function EstatetypeRegion($regionId)
     {
         $region = region::where('id', $regionId)->first();
-        if (session()->get('locale') == 'en')
-        {
+        if (session()->get('locale') == 'en') {
             return $region->Name;
-        }
-        elseif (session()->get('locale') == 'ku')
-        {
+        } elseif (session()->get('locale') == 'ku') {
+            //return session()->get('locale');
             return $region->kurdishname;
         }
     }

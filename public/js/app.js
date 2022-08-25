@@ -50968,8 +50968,8 @@ var app = new Vue({
     },
     RemoveEstate: function RemoveEstate(type, Id) {
       Swal.fire({
-        title: "آیا مطمئنید ",
-        text: "قصد حذف آیتم امکانات ملک دارید ؟",
+        title: "Are you sure ",
+        text: "Do you want Delete Estate ?",
         icon: "warning",
         showCancelButton: !0,
         confirmButtonText: "Yes, delete it!",
@@ -50987,9 +50987,9 @@ var app = new Vue({
             Id: Id
           }).then(function (response) {
             if (response.data.status == 200) {
-              swal("ملک  شما با موفقیت حذف شد", {
+              swal("Estate is Delete", {
                 icon: "success",
-                button: "باشه"
+                button: "ok"
               });
               setTimeout(function () {
                 location.reload();
@@ -50998,9 +50998,9 @@ var app = new Vue({
                 window.location.assign('/admin/Estate');
               }, 2000);
             } else if (response.data.status == 100) {
-              swal("حذف ناموفق مجددا تلاش کنید", {
+              swal("Pleae try again", {
                 icon: "warning",
-                button: "باشه"
+                button: "ok"
               });
               setTimeout(function () {
                 window.location.assign('/admin/Estate');
@@ -51012,8 +51012,8 @@ var app = new Vue({
           });
         } else if (t.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
-            title: "لغو",
-            text: "عملیات حذف لغو شد",
+            title: "Cancel",
+            text: "operation is Cancel",
             icon: "error",
             customClass: {
               confirmButton: "btn btn-success"
@@ -51512,7 +51512,7 @@ var app = new Vue({
       var regionselect = $("#regionselect option:selected").val();
 
       if (regionselect == '') {
-        toastr.error('لطفا منطقه ملک را مشخص کنید');
+        toastr.error('Please choose region');
       }
 
       var estatetype = $("#estatetype option:selected").val();
@@ -51543,42 +51543,42 @@ var app = new Vue({
 
       if (loan == 1) {
         if (RentAmount == '') {
-          toastr.error('لطفا مبلغ وام را وارد کنید ');
+          toastr.error('PLease Enter loan amount ');
           return false;
         }
 
         if (Number(RentAmount) === 0) {
-          toastr.error('فیلد وام باید وارد کنید چون ملک مورد نظر وام دارد');
+          toastr.error('Please Enter loan Amount');
           return false;
         }
       }
 
       if (typeAdv == 'rent') {
         if (price_rahan == '') {
-          toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت رهن را وارد کنید');
+          toastr.error('PLease Enter price sell amount');
           return false;
         }
 
         if (RentAmount == '') {
-          toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت اجاره را وارد کنید');
+          toastr.error('Please Enter Price sell amount');
           return false;
         }
 
         if (Number(RentAmount) === 0) {
-          toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت اجاره را وارد کنید');
+          toastr.error('Please Enter Price rent');
           return false;
         }
 
         if (Number(price_rahan) === 0) {
-          toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت رهن را وارد کنید');
+          toastr.error('Please Enter Price rent');
           return false;
         }
       } else if (typeAdv == 'sale') {
         if (price == '') {
-          toastr.error('قیمت فروش ملک را وارد کنید نباید خالی باشد');
+          toastr.error('Please Enter sell price');
           return false;
         } else if (Number(price) === 0) {
-          toastr.error('قیمت فروش ملک را وارد کنید نباید خالی باشد');
+          toastr.error('Please Enter sell price');
           return false;
         }
       }
@@ -51618,12 +51618,9 @@ var app = new Vue({
         console.log(response.data);
 
         if (response.data['status'] == 100) {
-          /* swal("ویرایش موفق ", "ملک مورد نظر با موفقیت ویرایش شد", "info", {
-               button: "باشه"
-           });*/
           Swal.fire({
-            title: "عملیات ویرایش موفق",
-            text: "ملک مورد نظر با موفقیت ویرایش شد",
+            title: "Update Estate",
+            text: "Estate is Update",
             icon: "success",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -51635,26 +51632,150 @@ var app = new Vue({
             location.reload();
           }, 2000);
         } else if (response.data['success'] == false) {
-          toastr.error('لطفا فیلد ها را با دقت پر کنید');
+          toastr.error('Please Enter all Field');
           _this36.allerros = response.data.errors;
         }
       });
-      /* ,response=>{
-               alert(response.data.errors);
-               this.errors=response.data.errors;
-                /!* if(error.response.status == 422)
-                {
-                     this.errors=error.response.data.errors;
-                }*!/
-               swal(" خطا ", "خطا مجددا سعی کنید", "error", {
-                   button: "باشه"
-               });
-               this.errors=error.response.data.errors;
-               console.log("error");
-           }*/
+    },
+    EditProject: function EditProject(EstateId) {
+      var _this37 = this;
+
+      var provincelist = $("#state option:selected").text();
+      var citylist = $("#city option:selected").text();
+      var regionselect = $("#regionselect option:selected").val();
+
+      if (regionselect == '') {
+        toastr.error('Please choose region');
+      }
+
+      var estatetype = $("#estatetype option:selected").val();
+      var position_type = $("#position_type option:selected").val();
+      var typeAdv = $("#typeAdv option:selected").val();
+      var usagetype = $("#usagetype option:selected").val();
+      var ownership = $("#ownership option:selected").val();
+      var requestTour = $("#requestTour option:selected").val();
+      var LandTotalSquare = $("input[data-value='LandTotalSquare']").val();
+      var SquareFootage = $("input[data-value='SquareFootage']").val();
+      var RoomNumber = $("input[data-value='RoomNumber']").val();
+      var unit = $("input[data-value='unit']").val();
+      var floor = $("input[data-value='floor']").val();
+      var unitfloor = $("input[data-value='unitfloor']").val();
+      var yearmade = $("input[data-value='yearmade']").val();
+      var fullname = $("input[data-value='fullname']").val();
+      var ProjectName = $("input[data-value='ProjectName']").val();
+      var MobileNumber = $("input[data-value='MobileNumber']").val();
+      var Email = $("input[data-value='Email']").val();
+      var Address = $("input[data-value='Address']").val();
+      var address_ku = $("input[data-value='address_ku']").val();
+      var price = $("input[data-value='price']").val();
+      var loan = $("#loan option:selected").val();
+      var loanAmount = $("input[data-value='loanAmount']").val();
+      var price_rahan = $("input[data-value='price_rahan']").val();
+      var RentAmount = $("input[data-value='RentAmount']").val();
+      var VirtualTourCode = $("input[data-value='VirtualTourCode']").val();
+      var ComplimentalDescription = $("textarea[data-value='ComplimentalDescription']").val();
+      var textNote = $("textarea[data-value='textNote']").val();
+
+      if (loan == 1) {
+        if (RentAmount == '') {
+          toastr.error('PLease Enter loan amount ');
+          return false;
+        }
+
+        if (Number(RentAmount) === 0) {
+          toastr.error('Please Enter loan Amount');
+          return false;
+        }
+      }
+
+      if (typeAdv == 'rent') {
+        if (price_rahan == '') {
+          toastr.error('PLease Enter price sell amount');
+          return false;
+        }
+
+        if (RentAmount == '') {
+          toastr.error('Please Enter Price sell amount');
+          return false;
+        }
+
+        if (Number(RentAmount) === 0) {
+          toastr.error('Please Enter Price rent');
+          return false;
+        }
+
+        if (Number(price_rahan) === 0) {
+          toastr.error('Please Enter Price rent');
+          return false;
+        }
+      } else if (typeAdv == 'sale') {
+        if (price == '') {
+          toastr.error('Please Enter sell price');
+          return false;
+        } else if (Number(price) === 0) {
+          toastr.error('Please Enter sell price');
+          return false;
+        }
+      }
+
+      this.allerros = [];
+      axios.post('/admin/UpdateProject', {
+        EstateId: EstateId,
+        ProjectName: ProjectName,
+        city: citylist,
+        province: provincelist,
+        region: regionselect,
+        estatetype: estatetype,
+        typeAdv: typeAdv,
+        position_type: position_type,
+        usagetype: usagetype,
+        ownership: ownership,
+        requestTour: requestTour,
+        ComplimentalDescription: ComplimentalDescription,
+        LandTotalSquare: LandTotalSquare,
+        SquareFootage: SquareFootage,
+        RoomNumber: RoomNumber,
+        unit: unit,
+        floor: floor,
+        unitfloor: unitfloor,
+        yearmade: yearmade,
+        MobileNumber: MobileNumber,
+        fullname: fullname,
+        Email: Email,
+        address_ku: address_ku,
+        Address: Address,
+        loanAmount: loanAmount,
+        price: price,
+        loan: loan,
+        price_rahan: price_rahan,
+        RentAmount: RentAmount,
+        textNote: textNote,
+        VirtualTourCode: VirtualTourCode
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data['status'] == 100) {
+          Swal.fire({
+            title: "Project Updated ",
+            text: "Project is Update",
+            icon: "success",
+            customClass: {
+              confirmButton: "btn btn-primary"
+            },
+            buttonsStyling: !1
+          });
+          setTimeout(function () {
+            // window.location.assign('/admin/Estatelist');
+            location.reload();
+          }, 2000);
+        } else if (response.data['success'] == false) {
+          toastr.error('Please Enter all Field');
+          _this37.allerros = response.data.errors;
+        }
+      });
     },
     AddPossibilitiesToEstate: function AddPossibilitiesToEstate(id, type) {
-      var _this37 = this;
+      var _this38 = this;
 
       var val = [];
       var arr = [];
@@ -51680,8 +51801,8 @@ var app = new Vue({
 
         if (response.data.status == 500) {
           Swal.fire({
-            title: "تکراری",
-            text: "امکانات انتخاب شده تکراری هست دقت کنید",
+            title: "repeated Possibilities",
+            text: "Possibilities Estate is repeated",
             icon: "info",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -51697,8 +51818,8 @@ var app = new Vue({
           }, 2000);
         } else if (response.data.status == 200) {
           Swal.fire({
-            title: "ثبت موفق",
-            text: "نوع امکانات جدید برای ملک مورد نظر با موفقیت ثبت شد",
+            title: "Success",
+            text: "Possibilities is Added",
             icon: "success",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -51713,20 +51834,10 @@ var app = new Vue({
             location.reload();
           }, 2000);
         }
-        /*  setTimeout(function () {
-              location.reload();
-          },2000);*/
-
-        /*   if (response.data['status'] == 100) {
-               swal("ثبت موفق ", "نوع امکانات جدید برای ملک مورد نظر با موفقیت ثبت شد", "success", {
-                   button: "باشه"
-               });
-            }*/
-
       }, function (response) {
         Swal.fire({
-          title: "خطا!",
-          text: " خطا مجددا سعی کنید",
+          title: "Error",
+          text: " Please try again",
           icon: "error",
           customClass: {
             confirmButton: "btn btn-primary"
@@ -51737,61 +51848,14 @@ var app = new Vue({
                 button: "باشه"
             });*/
 
-        _this37.error = 1;
+        _this38.error = 1;
         console.log("error");
       });
     },
     DeletePossibilitiesEstate: function DeletePossibilitiesEstate(Id, type) {
       Swal.fire({
-        title: "آیا مطمئنید ",
-        text: "قصد حذف آیتم امکانات ملک دارید ؟",
-        icon: "warning",
-        showCancelButton: !0,
-        confirmButtonText: "Yes, delete it!",
-        customClass: {
-          confirmButton: "btn btn-primary",
-          cancelButton: "btn btn-outline-danger ms-1"
-        },
-        buttonsStyling: !1
-      }).then(function (t) {
-        var _this38 = this;
-
-        if (t.value) {
-          axios.post('/admin/DeletePossibilitiesEstate', {
-            action: 'DeletePossibilitiesEstate',
-            Id: Id
-          }).then(function (response) {
-            Swal.fire({
-              icon: "success",
-              title: "حذف موفق آمیز!",
-              text: "نوع امکانات  شما با موفقیت حذف شد",
-              customClass: {
-                confirmButton: "btn btn-success"
-              }
-            });
-            setTimeout(function () {
-              location.reload();
-            }, 2000);
-          }, function (response) {
-            _this38.error = 1;
-            console.log("error");
-          });
-        } else if (t.dismiss === Swal.DismissReason.cancel) {
-          Swal.fire({
-            title: "لغو",
-            text: "عملیات حذف لغو شد",
-            icon: "error",
-            customClass: {
-              confirmButton: "btn btn-success"
-            }
-          });
-        }
-      });
-    },
-    DeleteImageEstate: function DeleteImageEstate(Id, type) {
-      Swal.fire({
-        title: "آیا مطمئنید ",
-        text: "قصد حذف تصویر ملک دارید ؟",
+        title: "Are you sure ? ",
+        text: "Do you want Delete Possibilities Estate ?",
         icon: "warning",
         showCancelButton: !0,
         confirmButtonText: "Yes, delete it!",
@@ -51804,14 +51868,14 @@ var app = new Vue({
         var _this39 = this;
 
         if (t.value) {
-          axios.post('/admin/DeleteImageEstate', {
-            action: 'DeleteImageEstate',
+          axios.post('/admin/DeletePossibilitiesEstate', {
+            action: 'DeletePossibilitiesEstate',
             Id: Id
           }).then(function (response) {
             Swal.fire({
               icon: "success",
-              title: "حذف موفق آمیز!",
-              text: "تصویر مورد نظر با موفقیت حذف شد",
+              title: "Delete success",
+              text: "DeletePossibilities Estate is deleted",
               customClass: {
                 confirmButton: "btn btn-success"
               }
@@ -51825,8 +51889,55 @@ var app = new Vue({
           });
         } else if (t.dismiss === Swal.DismissReason.cancel) {
           Swal.fire({
-            title: "لغو",
-            text: "عملیات حذف لغو شد",
+            title: "Cancel",
+            text: "Cancel ",
+            icon: "error",
+            customClass: {
+              confirmButton: "btn btn-success"
+            }
+          });
+        }
+      });
+    },
+    DeleteImageEstate: function DeleteImageEstate(Id, type) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want Delete Image",
+        icon: "warning",
+        showCancelButton: !0,
+        confirmButtonText: "Yes, delete it!",
+        customClass: {
+          confirmButton: "btn btn-primary",
+          cancelButton: "btn btn-outline-danger ms-1"
+        },
+        buttonsStyling: !1
+      }).then(function (t) {
+        var _this40 = this;
+
+        if (t.value) {
+          axios.post('/admin/DeleteImageEstate', {
+            action: 'DeleteImageEstate',
+            Id: Id
+          }).then(function (response) {
+            Swal.fire({
+              icon: "success",
+              title: "Image ",
+              text: "Image is Deleted",
+              customClass: {
+                confirmButton: "btn btn-success"
+              }
+            });
+            setTimeout(function () {
+              location.reload();
+            }, 2000);
+          }, function (response) {
+            _this40.error = 1;
+            console.log("error");
+          });
+        } else if (t.dismiss === Swal.DismissReason.cancel) {
+          Swal.fire({
+            title: "Cancel",
+            text: "Delete Cancel",
             icon: "error",
             customClass: {
               confirmButton: "btn btn-success"
@@ -51867,7 +51978,7 @@ var app = new Vue({
       });
     },
     AddTeam: function AddTeam() {
-      var _this40 = this;
+      var _this41 = this;
 
       var name = $("#name").val();
       var job = $("#job").val();
@@ -51905,7 +52016,7 @@ var app = new Vue({
           }, 2000);
         } else if (response.data['success'] == false) {
           toastr.error('لطفا فیلد ها را با دقت پر کنید');
-          _this40.allerros = response.data.errors;
+          _this41.allerros = response.data.errors;
         }
       });
       /* ,response=>{
@@ -51923,7 +52034,7 @@ var app = new Vue({
            }*/
     },
     AddNote: function AddNote(Id) {
-      var _this41 = this;
+      var _this42 = this;
 
       var imageSilder = $("#imageSilder").val();
       var noterequest = $('textarea[name="noterequest"]').val();
@@ -51945,12 +52056,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this41.error = 1;
+        _this42.error = 1;
         console.log("error");
       });
     },
     AddSilder: function AddSilder() {
-      var _this42 = this;
+      var _this43 = this;
 
       var imageSilder = $("#imageSilder").val();
       axios.post('/admin/AddSilder', {
@@ -51972,12 +52083,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this42.error = 1;
+        _this43.error = 1;
         console.log("error");
       });
     },
     EditSliderImage: function EditSliderImage(Id) {
-      var _this43 = this;
+      var _this44 = this;
 
       var TopicSlider = $('input[name="TopicSlider"]').val();
       var TextSlider = $('input[name="TextSlider"]').val();
@@ -52000,7 +52111,7 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this43.error = 1;
+        _this44.error = 1;
         console.log("error");
       });
     },
@@ -52015,7 +52126,7 @@ var app = new Vue({
         },
         dangerMode: true
       }).then(function (willDelete) {
-        var _this44 = this;
+        var _this45 = this;
 
         if (willDelete) {
           axios.post('/admin/DeleteEstate', {
@@ -52036,7 +52147,7 @@ var app = new Vue({
              },2000);*/
 
           }, function (response) {
-            _this44.error = 1;
+            _this45.error = 1;
             console.log("error");
           });
         } else {
@@ -52058,7 +52169,7 @@ var app = new Vue({
         },
         dangerMode: true
       }).then(function (willDelete) {
-        var _this45 = this;
+        var _this46 = this;
 
         if (willDelete) {
           axios.post('/admin/DeleteEstateOffer', {
@@ -52072,7 +52183,7 @@ var app = new Vue({
               window.location.assign('/admin/Estatelist');
             }, 2000);
           }, function (response) {
-            _this45.error = 1;
+            _this46.error = 1;
             console.log("error");
           });
         } else {
@@ -52094,7 +52205,7 @@ var app = new Vue({
         },
         dangerMode: true
       }).then(function (willDelete) {
-        var _this46 = this;
+        var _this47 = this;
 
         if (willDelete) {
           axios.post('/admin/DeleteRequest', {
@@ -52108,7 +52219,7 @@ var app = new Vue({
               window.location.assign('/admin/listRequest');
             }, 2000);
           }, function (response) {
-            _this46.error = 1;
+            _this47.error = 1;
             console.log("error");
           });
         } else {
@@ -52122,7 +52233,7 @@ var app = new Vue({
 
     /***************Possibilies Estate*********************/
     AddPossibilitiesEstate: function AddPossibilitiesEstate(id) {
-      var _this47 = this;
+      var _this48 = this;
 
       var val = [];
       var arr = [];
@@ -52156,12 +52267,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this47.error = 1;
+        _this48.error = 1;
         console.log("error");
       });
     },
     AddCurrentPossibiliesEstate: function AddCurrentPossibiliesEstate(id) {
-      var _this48 = this;
+      var _this49 = this;
 
       var val = [];
       var arr = [];
@@ -52209,12 +52320,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this48.error = 1;
+        _this49.error = 1;
         console.log("error");
       });
     },
     ChangeStatusRequest: function ChangeStatusRequest(Id, type) {
-      var _this49 = this;
+      var _this50 = this;
 
       axios.post('/admin/ChangeStatusRequest', {
         Id: Id,
@@ -52233,12 +52344,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this49.error = 1;
+        _this50.error = 1;
         console.log("error");
       });
     },
     ChangeStatus: function ChangeStatus(Id, type) {
-      var _this50 = this;
+      var _this51 = this;
 
       axios.post('/admin/ChangeEstateStatus', {
         Id: Id,
@@ -52263,12 +52374,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this50.error = 1;
+        _this51.error = 1;
         console.log("error");
       });
     },
     ChangeEstateVIP: function ChangeEstateVIP(Id, type) {
-      var _this51 = this;
+      var _this52 = this;
 
       axios.post('/admin/ChangeEstateVIP', {
         Id: Id,
@@ -52290,12 +52401,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this51.error = 1;
+        _this52.error = 1;
         console.log("error");
       });
     },
     ChangeElevator: function ChangeElevator(type, Id, valueadta) {
-      var _this52 = this;
+      var _this53 = this;
 
       axios.post('/admin/ChangeElevatoEstate', {
         action: 'ChangeElevatoEstate',
@@ -52304,8 +52415,8 @@ var app = new Vue({
       }).then(function (response) {
         if (response.data['status'] == 100) {
           Swal.fire({
-            title: "تغییر وضعیت",
-            text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+            title: "Status Elevator",
+            text: "Change Elevator status is change",
             icon: "success",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52317,8 +52428,8 @@ var app = new Vue({
           }, 2000);
         } else if (response.data['status'] == 500) {
           Swal.fire({
-            title: "خطا ",
-            text: "مجددا تلاش کنید",
+            title: "Error ",
+            text: "try again",
             icon: "error",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52330,12 +52441,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this52.error = 1;
+        _this53.error = 1;
         console.log("error");
       });
     },
     ChangeParking: function ChangeParking(type, Id, valueadta) {
-      var _this53 = this;
+      var _this54 = this;
 
       axios.post('/admin/ChangeParkingEstate', {
         Id: Id,
@@ -52343,8 +52454,8 @@ var app = new Vue({
       }).then(function (response) {
         if (response.data['status'] == 100) {
           Swal.fire({
-            title: "تغییر وضعیت",
-            text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+            title: "Change Status",
+            text: "Change Parking Estate",
             icon: "success",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52356,8 +52467,8 @@ var app = new Vue({
           }, 2000);
         } else if (response.data['status'] == 500) {
           Swal.fire({
-            title: "خطا ",
-            text: "مجددا تلاش کنید",
+            title: "Error ",
+            text: "Try again",
             icon: "error",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52369,12 +52480,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this53.error = 1;
+        _this54.error = 1;
         console.log("error");
       });
     },
     ChangeWarehouse: function ChangeWarehouse(type, Id, valueadta) {
-      var _this54 = this;
+      var _this55 = this;
 
       axios.post('/admin/ChangewarehouseEstate', {
         Id: Id,
@@ -52382,8 +52493,8 @@ var app = new Vue({
       }).then(function (response) {
         if (response.data['status'] == 100) {
           Swal.fire({
-            title: "تغییر وضعیت",
-            text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+            title: "Change Status ",
+            text: "Change Status ware house Estate",
             icon: "success",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52395,8 +52506,8 @@ var app = new Vue({
           }, 2000);
         } else if (response.data['status'] == 500) {
           Swal.fire({
-            title: "خطا ",
-            text: "مجددا تلاش کنید",
+            title: "Error ",
+            text: "try again",
             icon: "error",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52408,12 +52519,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this54.error = 1;
+        _this55.error = 1;
         console.log("error");
       });
     },
     ChangeBalcony: function ChangeBalcony(type, Id, valueadta) {
-      var _this55 = this;
+      var _this56 = this;
 
       var typelink = '';
 
@@ -52430,8 +52541,8 @@ var app = new Vue({
       }).then(function (response) {
         if (response.data['status'] == 100) {
           Swal.fire({
-            title: "تغییر وضعیت",
-            text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+            title: "Change Status ",
+            text: "Change Status  Balcony",
             icon: "success",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52443,8 +52554,8 @@ var app = new Vue({
           }, 2000);
         } else if (response.data['status'] == 500) {
           Swal.fire({
-            title: "خطا ",
-            text: "مجددا تلاش کنید",
+            title: "Error ",
+            text: "Error",
             icon: "error",
             customClass: {
               confirmButton: "btn btn-primary"
@@ -52456,12 +52567,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this55.error = 1;
+        _this56.error = 1;
         console.log("error");
       });
     },
     ChangeElevatormain: function ChangeElevatormain(Id, valueadta) {
-      var _this56 = this;
+      var _this57 = this;
 
       axios.post('/admin/ChangeElevatoEstate', {
         Id: Id,
@@ -52504,41 +52615,14 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this56.error = 1;
-        console.log("error");
-      });
-    },
-    ChangeStatusUser: function ChangeStatusUser(Id, type) {
-      var _this57 = this;
-
-      axios.post('/admin/ChangeUserStatus', {
-        Id: Id,
-        type: type
-      }).then(function (response) {
-        if (response.data['status'] == 100) {
-          swal("وضیعت دسترسی", "وضعیت حساب کاربری مورد نظر تغییر  یافت شد", "success", {
-            button: "باشه"
-          });
-          setTimeout(function () {
-            window.location.assign('/admin/User');
-          }, 2000);
-        } else if (response.data['status'] == 101) {
-          swal("خطا", "مجددا تلاش کنید ", "warning", {
-            button: "باشه"
-          });
-          /* setTimeout(function () {
-               window.location.assign('/admin/Estatelist');
-           },2000);*/
-        }
-      }, function (response) {
         _this57.error = 1;
         console.log("error");
       });
     },
-    ChangePermissionUser: function ChangePermissionUser(Id, type) {
+    ChangeStatusUser: function ChangeStatusUser(Id, type) {
       var _this58 = this;
 
-      axios.post('/admin/ChangePermissionUser', {
+      axios.post('/admin/ChangeUserStatus', {
         Id: Id,
         type: type
       }).then(function (response) {
@@ -52562,10 +52646,10 @@ var app = new Vue({
         console.log("error");
       });
     },
-    ChangeStateNoty: function ChangeStateNoty() {
+    ChangePermissionUser: function ChangePermissionUser(Id, type) {
       var _this59 = this;
 
-      axios.post('/admin/ChangeUserStatus', {
+      axios.post('/admin/ChangePermissionUser', {
         Id: Id,
         type: type
       }).then(function (response) {
@@ -52589,8 +52673,35 @@ var app = new Vue({
         console.log("error");
       });
     },
-    ChangePassword: function ChangePassword(Id) {
+    ChangeStateNoty: function ChangeStateNoty() {
       var _this60 = this;
+
+      axios.post('/admin/ChangeUserStatus', {
+        Id: Id,
+        type: type
+      }).then(function (response) {
+        if (response.data['status'] == 100) {
+          swal("وضیعت دسترسی", "وضعیت حساب کاربری مورد نظر تغییر  یافت شد", "success", {
+            button: "باشه"
+          });
+          setTimeout(function () {
+            window.location.assign('/admin/User');
+          }, 2000);
+        } else if (response.data['status'] == 101) {
+          swal("خطا", "مجددا تلاش کنید ", "warning", {
+            button: "باشه"
+          });
+          /* setTimeout(function () {
+               window.location.assign('/admin/Estatelist');
+           },2000);*/
+        }
+      }, function (response) {
+        _this60.error = 1;
+        console.log("error");
+      });
+    },
+    ChangePassword: function ChangePassword(Id) {
+      var _this61 = this;
 
       axios.post('/admin/ChangeUserPassword', {
         Id: Id,
@@ -52612,12 +52723,12 @@ var app = new Vue({
            },2000);*/
         }
       }, function (response) {
-        _this60.error = 1;
+        _this61.error = 1;
         console.log("error");
       });
     },
     EditStateEstatePending: function EditStateEstatePending() {
-      var _this61 = this;
+      var _this62 = this;
 
       axios.post('/admin/ChangeEstateStatusPending', {
         Id: $("#IdEstate").val(),
@@ -52633,12 +52744,12 @@ var app = new Vue({
           }, 2000);
         }
       }, function (response) {
-        _this61.error = 1;
+        _this62.error = 1;
         console.log("error");
       });
     },
     EditTran: function EditTran(Id) {
-      var _this62 = this;
+      var _this63 = this;
 
       //var regionselecttra= $("#regionselecttra option:selected").val();
       var regionselecttra = $("#regionselecttra").val();
@@ -52676,7 +52787,7 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this62.error = 1;
+        _this63.error = 1;
         console.log("error");
       });
     },
@@ -52691,7 +52802,7 @@ var app = new Vue({
         },
         dangerMode: true
       }).then(function (willDelete) {
-        var _this63 = this;
+        var _this64 = this;
 
         if (willDelete) {
           axios.post('DeleteTran', {
@@ -52715,7 +52826,7 @@ var app = new Vue({
               }, 2000);
             }
           }, function (response) {
-            _this63.error = 1;
+            _this64.error = 1;
             console.log("error");
           });
         } else {
@@ -52741,7 +52852,7 @@ var app = new Vue({
       console.log(event.target.value);
     },
     AddTransaction: function AddTransaction() {
-      var _this64 = this;
+      var _this65 = this;
 
       //  var regionselecttra= $("#regionselecttra option:selected").val();
       var regionselecttra = $('#keyregion').val();
@@ -52775,7 +52886,7 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this64.error = 1;
+        _this65.error = 1;
         console.log("error");
       });
     },
@@ -52790,7 +52901,7 @@ var app = new Vue({
         },
         dangerMode: true
       }).then(function (willDelete) {
-        var _this65 = this;
+        var _this66 = this;
 
         if (willDelete) {
           axios.post('DeleteSilder', {
@@ -52814,7 +52925,7 @@ var app = new Vue({
               }, 2000);
             }
           }, function (response) {
-            _this65.error = 1;
+            _this66.error = 1;
             console.log("error");
           });
         } else {
@@ -52826,7 +52937,7 @@ var app = new Vue({
       });
     },
     Wo_ResendCode: function Wo_ResendCode(mobile) {
-      var _this66 = this;
+      var _this67 = this;
 
       axios.post('/ResendSMS', {
         mobile: mobile
@@ -52843,12 +52954,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this66.error = 1;
+        _this67.error = 1;
         console.log("error");
       });
     },
     VerifySMSCode: function VerifySMSCode() {
-      var _this67 = this;
+      var _this68 = this;
 
       if (this.verify_code == '') {
         alert('لطفا کد تایید عضویت را وارد کنید');
@@ -52866,13 +52977,13 @@ var app = new Vue({
           swal(" خطا ", "خطا کد تایید اشتباه هست ", "error", {
             button: "باشه"
           });
-          _this67.error = 1;
+          _this68.error = 1;
           console.log("error");
         });
       }
     },
     EditRequest: function EditRequest(Id) {
-      var _this68 = this;
+      var _this69 = this;
 
       var Posselected = $("#Posselected").val();
       var estateSelected = $("#estateSelected").val();
@@ -52938,30 +53049,30 @@ var app = new Vue({
             toastr.info('مشتری گرامی قبلا درخواست شما ثبت شده در حال بررسی هستیم');
           }
         }, function (response) {
-          _this68.error = 1;
+          _this69.error = 1;
           console.log("error");
         });
       }
     },
     onImageChangeLeoMa: function onImageChangeLeoMa(e) {
-      var _this69 = this;
-
-      var files = e.target.files;
-      Array.from(files).forEach(function (file) {
-        return _this69.addImage(file);
-      });
-    },
-    onImageChange: function onImageChange(e) {
       var _this70 = this;
 
       var files = e.target.files;
-      alert(files);
       Array.from(files).forEach(function (file) {
         return _this70.addImage(file);
       });
     },
-    addImage: function addImage(file) {
+    onImageChange: function onImageChange(e) {
       var _this71 = this;
+
+      var files = e.target.files;
+      alert(files);
+      Array.from(files).forEach(function (file) {
+        return _this71.addImage(file);
+      });
+    },
+    addImage: function addImage(file) {
+      var _this72 = this;
 
       if (!file.type.match('image.*')) {
         console.log("".concat(file.name, " is not an image"));
@@ -52973,14 +53084,14 @@ var app = new Vue({
           reader = new FileReader();
 
       reader.onload = function (e) {
-        return _this71.images.push(e.target.result);
+        return _this72.images.push(e.target.result);
       };
 
       alert(this.images);
       reader.readAsDataURL(file);
     },
     ChangeStatusEstateUser: function ChangeStatusEstateUser(Id, role) {
-      var _this72 = this;
+      var _this73 = this;
 
       axios.post('ChangeStatusEstateUser', {
         action: 'ChangeStatusEstateUser',
@@ -52990,21 +53101,18 @@ var app = new Vue({
         console.log(response.data);
 
         if (response.data['status'] == 200) {
-          /* swal("وضعیت ملک ", "وضعیت ملک با موفقیت تغییر یافت", "success", {
-               button: "باشه"
-           });*/
-          toastr.success('وضعیت ملک با موفقیت اپدیت شد');
+          toastr.success('Estate Status is updated');
           setTimeout(function () {
             window.location.reload();
           }, 2000);
         }
       }, function (response) {
-        _this72.error = 1;
+        _this73.error = 1;
         console.log("error");
       });
     },
     publishEstateUserwwww: function publishEstateUserwwww() {
-      var _this73 = this;
+      var _this74 = this;
 
       var tabBars = Array.from(document.querySelectorAll('.mdc-tab-bar'));
       var formData = new FormData();
@@ -53170,12 +53278,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this73.error = 1;
+        _this74.error = 1;
         console.log("error");
       });
     },
     CalculateRent: function CalculateRent() {
-      var _this74 = this;
+      var _this75 = this;
 
       var RentPrice = $("#RentPrice").val();
       var rahanPrice = $("#rahanPrice").val();
@@ -53195,12 +53303,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this74.error = 1;
+        _this75.error = 1;
         console.log("error");
       });
     },
     CalculateSale: function CalculateSale() {
-      var _this75 = this;
+      var _this76 = this;
 
       var number_under = $("#number_under").val();
       axios.post('CalculateSale', {
@@ -53224,7 +53332,7 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this75.error = 1;
+        _this76.error = 1;
         console.log("error");
       });
     },
@@ -53236,7 +53344,7 @@ var app = new Vue({
       return val;
     },
     UpdateinfoSite: function UpdateinfoSite() {
-      var _this76 = this;
+      var _this77 = this;
 
       var email = $('input[name="email_site"]').val();
       var phone_Sellerone = $('input[name="phone_Sellerone"]').val();
@@ -53264,12 +53372,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this76.error = 1;
+        _this77.error = 1;
         console.log("error");
       });
     },
     AddReport: function AddReport() {
-      var _this77 = this;
+      var _this78 = this;
 
       var descreport = $('textarea[name="descreport"]').val();
       var descresultreport = $('textarea[name="descresultreport"]').val();
@@ -53305,12 +53413,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this77.error = 1;
+        _this78.error = 1;
         console.log("error");
       });
     },
     SendVisitSMS: function SendVisitSMS(Id) {
-      var _this78 = this;
+      var _this79 = this;
 
       axios.post('/admin/SendVisitSMS', {
         Id: Id
@@ -53336,12 +53444,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this78.error = 1;
+        _this79.error = 1;
         console.log("error");
       });
     },
     AddReportOperator: function AddReportOperator() {
-      var _this79 = this;
+      var _this80 = this;
 
       var descreport = $('textarea[name="descreport"]').val();
       var descresultreport = $('textarea[name="descresultreport"]').val();
@@ -53374,12 +53482,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this79.error = 1;
+        _this80.error = 1;
         console.log("error");
       });
     },
     AddFavorite: function AddFavorite(estateId) {
-      var _this80 = this;
+      var _this81 = this;
 
       axios.post('/AddFavoriteEstate', {
         estateId: estateId
@@ -53400,12 +53508,12 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this80.error = 1;
+        _this81.error = 1;
         console.log("error");
       });
     },
     PublishTextAbout: function PublishTextAbout() {
-      var _this81 = this;
+      var _this82 = this;
 
       var titleAbout = CKEDITOR.instances['editor-demo3'].getData();
       var planAbout = CKEDITOR.instances['editor-demo2'].getData();
@@ -53429,7 +53537,7 @@ var app = new Vue({
         swal(" خطا ", "خطا مجددا سعی کنید", "error", {
           button: "باشه"
         });
-        _this81.error = 1;
+        _this82.error = 1;
         console.log("error");
       });
     },

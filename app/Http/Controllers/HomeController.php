@@ -44,11 +44,11 @@ class HomeController extends Controller
 
 
 
-        return view('Home.index', ['estate' => $estateinfo,  'setting' => $setting, 'region' => $region, 'estateVIP' => $estateVIP, 'estatePresell' => $estatePresell]);
+        return view('Home.v3.index', ['estate' => $estateinfo,  'setting' => $setting, 'region' => $region, 'estateVIP' => $estateVIP, 'estatePresell' => $estatePresell]);
     }
     public function about(){
 
-        return view('Home.about');
+        return view('Home.v1.about');
     }
     public function contactus(){
 

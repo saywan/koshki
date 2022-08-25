@@ -12,43 +12,23 @@
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="content-header-title float-start mb-0">
-                                List Usage Type Estate
+                                @lang('messages.Commercial')
                             </h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">Home</a>
+                                    <li class="breadcrumb-item"><a href="{{url('admin/index')}}">   @lang('messages.House')</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="#">Estate</a>
+                                    <li class="breadcrumb-item"><a href="#">   @lang('messages.Commercial')</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Usage Type Estate
+                                    <li class="breadcrumb-item active">   @lang('messages.Commercial')
                                     </li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                    <div class="mb-1 breadcrumb-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    data-feather="grid"></i></button>
-                            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                                            href="app-todo.html"><i class="me-1"
-                                                                                                    data-feather="check-square"></i><span
-                                        class="align-middle">Todo</span></a><a class="dropdown-item"
-                                                                               href="app-chat.html"><i class="me-1"
-                                                                                                       data-feather="message-square"></i><span
-                                        class="align-middle">Chat</span></a><a class="dropdown-item"
-                                                                               href="app-email.html"><i class="me-1"
-                                                                                                        data-feather="mail"></i><span
-                                        class="align-middle">Email</span></a><a class="dropdown-item"
-                                                                                href="app-calendar.html"><i class="me-1"
-                                                                                                            data-feather="calendar"></i><span
-                                        class="align-middle">Calendar</span></a></div>
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
             <div class="content-body">
 
@@ -59,10 +39,10 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">
-                                  Usage Type Estate
+                                    @lang('messages.Commercial')
                                 </h4>
                                 <button type="button" class="btn light btn-success" data-toggle="modal" data-target="#AddRegion">
-                                   New Usage Estate Type
+                                    @lang('messages.Commercial')
                                 </button>
 
                                 <div class="modal fade bd-example-modal-lg" id="AddRegion" tabindex="-1" role="dialog" aria-hidden="true">
@@ -70,7 +50,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">
-                                                    New Usage Estate Type
+                                                    @lang('messages.Commercial')
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
                                                 </button>
@@ -82,7 +62,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                             <label>
-                                                               Name Usage
+                                                                @lang('messages.Commercial')
                                                             </label>
                                                             <input type="text" class="form-control"  value=""     v-model="NameUsage">
                                                         </div>
@@ -91,7 +71,7 @@
                                                     <div class="form-row">
                                                         <div class="form-group col-md-6">
                                                             <label>
-                                                               Name Usage Kurdish
+                                                                @lang('messages.Commercial')
                                                             </label>
 
                                                             <input type="text" class="form-control"  name="kurdishname"     id="kurdishname">
@@ -101,7 +81,7 @@
 
                                                     <br>
                                                     <button type="submit" class="btn btn-primary" v-on:click="AddUsageType()">
-                                                        New Usage Estate Type
+                                                        @lang('messages.save')
                                                     </button>
 
                                                 </div>
@@ -118,15 +98,10 @@
                                     <table id="example1" class="table table-striped table-bordered" width="100%">
                                         <thead>
                                         <tr>
-                                            <th>Row</th>
-                                            <th>
-                                              Usage Type
-                                            </th>
-                                            <th>
-                                              Usage Type Kurdish
-                                            </th>
-                                            <th>access</th>
-
+                                            <th>  @lang('messages.Row')</th>
+                                            <th>    @lang('messages.Commercial')  </th>
+                                            <th>  @lang('messages.Commercial')   </th>
+                                            <th>   @lang('messages.access')</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -175,7 +150,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">
-                                                           Edit Usage Type
+                                                            @lang('messages.Commercial')
                                                             <strong class="badge badge-warning">{{$itemregion->Name}}  </strong>
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
@@ -187,7 +162,7 @@
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
                                                                     <label>
-                                                                        Name Usage
+                                                                        @lang('messages.Commercial')
                                                                     </label>
                                                                   {{--  <input type="text" class="form-control"  value="{{$itemregion->Name}}"  @keyup="DateInputNew('NameUsage',$event)"  >--}}
 
@@ -198,7 +173,7 @@
                                                             </div>
                                                             <div class="form-row">
                                                                 <div class="form-group col-md-6">
-                                                                    <label>Name of property facilities</label>
+                                                                    <label>   @lang('messages.Commercial')</label>
 
                                                                     <input type="text" class="form-control"  value="{{$itemregion->kurdishname}}" id="kurdishnameedit-{{$itemregion->id}}"  name="kurdishnameedit" >
 
@@ -209,7 +184,7 @@
 
                                                             <br>
                                                             <button type="submit" class="btn btn-primary" v-on:click="EditUsageType({{$itemregion->id}})">
-                                                                Edit
+                                                                @lang('messages.save')
                                                             </button>
 
                                                         </div>

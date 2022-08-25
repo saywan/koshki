@@ -1450,8 +1450,8 @@ const app = new Vue({
 
 
             Swal.fire({
-                title: "آیا مطمئنید ",
-                text: "قصد حذف آیتم امکانات ملک دارید ؟",
+                title: "Are you sure ",
+                text: "Do you want Delete Estate ?",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonText: "Yes, delete it!",
@@ -1469,9 +1469,9 @@ const app = new Vue({
                     }).then(response => {
 
                         if (response.data.status == 200) {
-                            swal("ملک  شما با موفقیت حذف شد", {
+                            swal("Estate is Delete", {
                                 icon: "success",
-                                button: "باشه"
+                                button: "ok"
                             });
                             setTimeout(function () {
                                 location.reload();
@@ -1480,9 +1480,9 @@ const app = new Vue({
                                 window.location.assign('/admin/Estate');
                             }, 2000);
                         } else if (response.data.status == 100) {
-                            swal("حذف ناموفق مجددا تلاش کنید", {
+                            swal("Pleae try again", {
                                 icon: "warning",
-                                button: "باشه"
+                                button: "ok"
                             });
                             setTimeout(function () {
                                 window.location.assign('/admin/Estate');
@@ -1498,8 +1498,8 @@ const app = new Vue({
 
                 } else if (t.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire({
-                        title: "لغو",
-                        text: "عملیات حذف لغو شد",
+                        title: "Cancel",
+                        text: "operation is Cancel",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-success"}
                     })
@@ -2044,7 +2044,7 @@ const app = new Vue({
             var regionselect = $("#regionselect option:selected").val();
 
             if (regionselect == '') {
-                toastr.error('لطفا منطقه ملک را مشخص کنید');
+                toastr.error('Please choose region');
             }
             var estatetype = $("#estatetype option:selected").val();
             var position_type = $("#position_type option:selected").val();
@@ -2083,13 +2083,13 @@ const app = new Vue({
 
             if (loan == 1) {
                 if (RentAmount == '') {
-                    toastr.error('لطفا مبلغ وام را وارد کنید ');
+                    toastr.error('PLease Enter loan amount ');
                     return false;
                 }
 
                 if (Number(RentAmount) === 0) {
 
-                    toastr.error('فیلد وام باید وارد کنید چون ملک مورد نظر وام دارد');
+                    toastr.error('Please Enter loan Amount');
                     return false;
                 }
 
@@ -2099,19 +2099,19 @@ const app = new Vue({
             if (typeAdv == 'rent') {
 
                 if (price_rahan == '') {
-                    toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت رهن را وارد کنید');
+                    toastr.error('PLease Enter price sell amount');
                     return false;
                 }
                 if (RentAmount == '') {
-                    toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت اجاره را وارد کنید');
+                    toastr.error('Please Enter Price sell amount');
                     return false;
                 }
                 if (Number(RentAmount) === 0) {
-                    toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت اجاره را وارد کنید');
+                    toastr.error('Please Enter Price rent');
                     return false;
                 }
                 if (Number(price_rahan) === 0) {
-                    toastr.error('ملک جاری از نوع اجاره هست لطفا قیمت رهن را وارد کنید');
+                    toastr.error('Please Enter Price rent');
                     return false;
                 }
 
@@ -2120,11 +2120,11 @@ const app = new Vue({
 
 
                 if (price == '') {
-                    toastr.error('قیمت فروش ملک را وارد کنید نباید خالی باشد');
+                    toastr.error('Please Enter sell price');
                     return false;
 
                 } else if (Number(price) === 0) {
-                    toastr.error('قیمت فروش ملک را وارد کنید نباید خالی باشد');
+                    toastr.error('Please Enter sell price');
                     return false;
                 }
             }
@@ -2168,12 +2168,11 @@ const app = new Vue({
                 console.log(response.data);
 
                 if (response.data['status'] == 100) {
-                    /* swal("ویرایش موفق ", "ملک مورد نظر با موفقیت ویرایش شد", "info", {
-                         button: "باشه"
-                     });*/
+
+
                     Swal.fire({
-                        title: "عملیات ویرایش موفق",
-                        text: "ملک مورد نظر با موفقیت ویرایش شد",
+                        title: "Update Estate",
+                        text: "Estate is Update",
                         icon: "success",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -2184,31 +2183,172 @@ const app = new Vue({
                         location.reload();
                     }, 2000);
                 } else if (response.data['success'] == false) {
-                    toastr.error('لطفا فیلد ها را با دقت پر کنید');
+                    toastr.error('Please Enter all Field');
                     this.allerros = response.data.errors;
 
-
                 }
-
 
             })
 
 
-            /* ,response=>{
-                     alert(response.data.errors);
-                     this.errors=response.data.errors;
+        },
+        EditProject: function (EstateId) {
 
-                     /!* if(error.response.status == 422)
-                      {
 
-                          this.errors=error.response.data.errors;
-                      }*!/
-                     swal(" خطا ", "خطا مجددا سعی کنید", "error", {
-                         button: "باشه"
-                     });
-                     this.errors=error.response.data.errors;
-                     console.log("error");
-                 }*/
+            var provincelist = $("#state option:selected").text();
+            var citylist = $("#city option:selected").text();
+            var regionselect = $("#regionselect option:selected").val();
+
+            if (regionselect == '') {
+                toastr.error('Please choose region');
+            }
+            var estatetype = $("#estatetype option:selected").val();
+            var position_type = $("#position_type option:selected").val();
+            var typeAdv = $("#typeAdv option:selected").val();
+
+
+            var usagetype = $("#usagetype option:selected").val();
+            var ownership = $("#ownership option:selected").val();
+            var requestTour = $("#requestTour option:selected").val();
+
+            var LandTotalSquare = $("input[data-value='LandTotalSquare']").val();
+            var SquareFootage = $("input[data-value='SquareFootage']").val();
+
+            var RoomNumber = $("input[data-value='RoomNumber']").val();
+
+            var unit = $("input[data-value='unit']").val();
+            var floor = $("input[data-value='floor']").val();
+            var unitfloor = $("input[data-value='unitfloor']").val();
+
+
+            var yearmade = $("input[data-value='yearmade']").val();
+            var fullname = $("input[data-value='fullname']").val();
+            var ProjectName = $("input[data-value='ProjectName']").val();
+            var MobileNumber = $("input[data-value='MobileNumber']").val();
+            var Email = $("input[data-value='Email']").val();
+            var Address = $("input[data-value='Address']").val();
+            var address_ku = $("input[data-value='address_ku']").val();
+            var price = $("input[data-value='price']").val();
+
+            var loan = $("#loan option:selected").val();
+            var loanAmount = $("input[data-value='loanAmount']").val();
+            var price_rahan = $("input[data-value='price_rahan']").val();
+            var RentAmount = $("input[data-value='RentAmount']").val();
+            var VirtualTourCode = $("input[data-value='VirtualTourCode']").val();
+            var ComplimentalDescription = $("textarea[data-value='ComplimentalDescription']").val();
+            var textNote = $("textarea[data-value='textNote']").val();
+
+
+            if (loan == 1) {
+                if (RentAmount == '') {
+                    toastr.error('PLease Enter loan amount ');
+                    return false;
+                }
+
+                if (Number(RentAmount) === 0) {
+
+                    toastr.error('Please Enter loan Amount');
+                    return false;
+                }
+
+            }
+
+
+            if (typeAdv == 'rent') {
+
+                if (price_rahan == '') {
+                    toastr.error('PLease Enter price sell amount');
+                    return false;
+                }
+                if (RentAmount == '') {
+                    toastr.error('Please Enter Price sell amount');
+                    return false;
+                }
+                if (Number(RentAmount) === 0) {
+                    toastr.error('Please Enter Price rent');
+                    return false;
+                }
+                if (Number(price_rahan) === 0) {
+                    toastr.error('Please Enter Price rent');
+                    return false;
+                }
+
+
+            } else if (typeAdv == 'sale') {
+
+
+                if (price == '') {
+                    toastr.error('Please Enter sell price');
+                    return false;
+
+                } else if (Number(price) === 0) {
+                    toastr.error('Please Enter sell price');
+                    return false;
+                }
+            }
+
+            this.allerros = [];
+
+            axios.post('/admin/UpdateProject', {
+
+                EstateId: EstateId,
+                ProjectName: ProjectName,
+                city: citylist,
+                province: provincelist,
+                region: regionselect,
+                estatetype: estatetype,
+                typeAdv: typeAdv,
+                position_type: position_type,
+                usagetype: usagetype,
+                ownership: ownership,
+                requestTour: requestTour,
+                ComplimentalDescription: ComplimentalDescription,
+                LandTotalSquare: LandTotalSquare,
+                SquareFootage: SquareFootage,
+                RoomNumber: RoomNumber,
+                unit: unit,
+                floor: floor,
+                unitfloor: unitfloor,
+                yearmade: yearmade,
+                MobileNumber: MobileNumber,
+                fullname: fullname,
+                Email: Email,
+                address_ku: address_ku,
+                Address: Address,
+                loanAmount: loanAmount,
+                price: price,
+                loan: loan,
+                price_rahan: price_rahan,
+                RentAmount: RentAmount,
+                textNote: textNote,
+                VirtualTourCode: VirtualTourCode,
+
+
+            }).then(response => {
+                console.log(response.data);
+
+                if (response.data['status'] == 100) {
+
+
+                    Swal.fire({
+                        title: "Project Updated ",
+                        text: "Project is Update",
+                        icon: "success",
+                        customClass: {confirmButton: "btn btn-primary"},
+                        buttonsStyling: !1
+                    })
+
+                    setTimeout(function () {
+                        // window.location.assign('/admin/Estatelist');
+                        location.reload();
+                    }, 2000);
+                } else if (response.data['success'] == false) {
+                    toastr.error('Please Enter all Field');
+                    this.allerros = response.data.errors;
+
+                }
+
+            })
 
 
         },
@@ -2245,8 +2385,8 @@ const app = new Vue({
                 if (response.data.status == 500) {
 
                     Swal.fire({
-                        title: "تکراری",
-                        text: "امکانات انتخاب شده تکراری هست دقت کنید",
+                        title: "repeated Possibilities",
+                        text: "Possibilities Estate is repeated",
                         icon: "info",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -2261,8 +2401,8 @@ const app = new Vue({
                 } else if (response.data.status == 200) {
 
                     Swal.fire({
-                        title: "ثبت موفق",
-                        text: "نوع امکانات جدید برای ملک مورد نظر با موفقیت ثبت شد",
+                        title: "Success",
+                        text: "Possibilities is Added",
                         icon: "success",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -2276,23 +2416,13 @@ const app = new Vue({
                     }, 2000);
                 }
 
-                /*  setTimeout(function () {
-                      location.reload();
-                  },2000);*/
-
-                /*   if (response.data['status'] == 100) {
-                       swal("ثبت موفق ", "نوع امکانات جدید برای ملک مورد نظر با موفقیت ثبت شد", "success", {
-                           button: "باشه"
-                       });
-
-                   }*/
 
 
             }, response => {
 
                 Swal.fire({
-                    title: "خطا!",
-                    text: " خطا مجددا سعی کنید",
+                    title: "Error",
+                    text: " Please try again",
                     icon: "error",
                     customClass: {confirmButton: "btn btn-primary"},
                     buttonsStyling: !1
@@ -2309,8 +2439,8 @@ const app = new Vue({
 
 
             Swal.fire({
-                title: "آیا مطمئنید ",
-                text: "قصد حذف آیتم امکانات ملک دارید ؟",
+                title: "Are you sure ? ",
+                text: "Do you want Delete Possibilities Estate ?",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonText: "Yes, delete it!",
@@ -2328,8 +2458,8 @@ const app = new Vue({
 
                         Swal.fire({
                             icon: "success",
-                            title: "حذف موفق آمیز!",
-                            text: "نوع امکانات  شما با موفقیت حذف شد",
+                            title: "Delete success",
+                            text: "DeletePossibilities Estate is deleted",
                             customClass: {confirmButton: "btn btn-success"}
                         })
 
@@ -2344,8 +2474,8 @@ const app = new Vue({
                     });
                 } else if (t.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire({
-                        title: "لغو",
-                        text: "عملیات حذف لغو شد",
+                        title: "Cancel",
+                        text: "Cancel ",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-success"}
                     })
@@ -2360,8 +2490,8 @@ const app = new Vue({
 
 
             Swal.fire({
-                title: "آیا مطمئنید ",
-                text: "قصد حذف تصویر ملک دارید ؟",
+                title: "Are you sure?",
+                text: "Do you want Delete Image",
                 icon: "warning",
                 showCancelButton: !0,
                 confirmButtonText: "Yes, delete it!",
@@ -2379,8 +2509,8 @@ const app = new Vue({
 
                         Swal.fire({
                             icon: "success",
-                            title: "حذف موفق آمیز!",
-                            text: "تصویر مورد نظر با موفقیت حذف شد",
+                            title: "Image ",
+                            text: "Image is Deleted",
                             customClass: {confirmButton: "btn btn-success"}
                         })
 
@@ -2395,8 +2525,8 @@ const app = new Vue({
                     });
                 } else if (t.dismiss === Swal.DismissReason.cancel) {
                     Swal.fire({
-                        title: "لغو",
-                        text: "عملیات حذف لغو شد",
+                        title: "Cancel",
+                        text: "Delete Cancel",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-success"}
                     })
@@ -3019,8 +3149,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "تغییر وضعیت",
-                        text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+                        title: "Status Elevator",
+                        text: "Change Elevator status is change",
                         icon: "success",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3033,8 +3163,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "خطا ",
-                        text: "مجددا تلاش کنید",
+                        title: "Error ",
+                        text: "try again",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3067,8 +3197,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "تغییر وضعیت",
-                        text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+                        title: "Change Status",
+                        text: "Change Parking Estate",
                         icon: "success",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3081,8 +3211,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "خطا ",
-                        text: "مجددا تلاش کنید",
+                        title: "Error ",
+                        text: "Try again",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3114,8 +3244,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "تغییر وضعیت",
-                        text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+                        title: "Change Status ",
+                        text: "Change Status ware house Estate",
                         icon: "success",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3128,8 +3258,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "خطا ",
-                        text: "مجددا تلاش کنید",
+                        title: "Error ",
+                        text: "try again",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3171,8 +3301,8 @@ const app = new Vue({
 
 
                     Swal.fire({
-                        title: "تغییر وضعیت",
-                        text: "امکانات ویژه ملک مورد نظر تغییر یافت",
+                        title: "Change Status ",
+                        text: "Change Status  Balcony",
                         icon: "success",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3186,8 +3316,8 @@ const app = new Vue({
                 } else if (response.data['status'] == 500) {
 
                     Swal.fire({
-                        title: "خطا ",
-                        text: "مجددا تلاش کنید",
+                        title: "Error ",
+                        text: "Error",
                         icon: "error",
                         customClass: {confirmButton: "btn btn-primary"},
                         buttonsStyling: !1
@@ -3864,10 +3994,8 @@ const app = new Vue({
                 console.log(response.data);
 
                 if (response.data['status'] == 200) {
-                    /* swal("وضعیت ملک ", "وضعیت ملک با موفقیت تغییر یافت", "success", {
-                         button: "باشه"
-                     });*/
-                    toastr.success('وضعیت ملک با موفقیت اپدیت شد');
+
+                    toastr.success('Estate Status is updated');
                     setTimeout(function () {
                         window.location.reload();
                     }, 2000);
